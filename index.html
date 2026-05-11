@@ -83,27 +83,81 @@
       .about-card-val { font-size: 0.82rem; font-weight: 600; color: var(--navy); }
 
       /* PROJECTS */
-      .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-      .project-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; transition: box-shadow 0.25s, transform 0.25s; }
-      .project-card:hover { box-shadow: 0 12px 40px rgba(37,99,235,0.1); transform: translateY(-4px); }
-      .project-thumb { height: 140px; background: linear-gradient(135deg, #EFF6FF, #DBEAFE); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; border-bottom: 1px solid var(--border); position: relative; }
-      .project-thumb::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--blue), var(--blue-light)); }
-      .project-body { padding: 24px; }
-      .project-name { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
-      .project-tagline { font-size: 0.72rem; color: var(--blue); font-weight: 600; margin-bottom: 14px; font-family: 'Geist Mono', monospace; }
-      .project-section-label { font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 4px; }
-      .project-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.6; margin-bottom: 14px; }
-      .project-stack { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
-      .tech-tag { font-family: 'Geist Mono', monospace; font-size: 0.63rem; padding: 3px 10px; background: var(--blue-pale); color: var(--blue); border-radius: 100px; border: 1px solid #BFDBFE; }
-      .project-results { list-style: none; margin-bottom: 20px; }
-      .project-results li { font-size: 0.8rem; color: var(--text); padding: 3px 0; display: flex; align-items: flex-start; gap: 6px; }
-      .project-results li::before { content: '✓'; color: #22C55E; font-weight: 700; font-size: 0.75rem; flex-shrink: 0; }
-      .project-links { display: flex; gap: 10px; }
-      .link-btn { flex: 1; text-align: center; padding: 9px; border-radius: 8px; font-size: 0.75rem; font-weight: 600; text-decoration: none; transition: all 0.2s; }
-      .link-demo { background: var(--blue); color: #fff; }
-      .link-demo:hover { background: #1D4ED8; }
-      .link-gh { background: var(--bg2); color: var(--navy); border: 1px solid var(--border); }
-      .link-gh:hover { background: var(--navy); color: #fff; }
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border: 1px solid var(--border);
+      }
+      .project-card {
+        padding: 36px 32px;
+        border-right: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        position: relative;
+        transition: background 0.2s;
+      }
+      .project-card:nth-child(3n) { border-right: none; }
+      .project-card::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 3px;
+        background: var(--blue);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+      .project-card:hover::before { transform: scaleX(1); }
+      .project-card:hover { background: var(--bg2); }
+      .project-num {
+        font-family: 'Geist Mono', monospace;
+        font-size: 0.7rem;
+        color: var(--muted);
+        letter-spacing: 0.08em;
+        margin-bottom: 28px;
+      }
+      .project-name {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--navy);
+        letter-spacing: -0.02em;
+        margin-bottom: 14px;
+        line-height: 1.3;
+      }
+      .project-desc {
+        font-size: 0.875rem;
+        color: var(--muted);
+        line-height: 1.65;
+        margin-bottom: 24px;
+      }
+      .project-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 28px;
+      }
+      .tech-tag {
+        font-family: 'Geist Mono', monospace;
+        font-size: 0.65rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 5px 12px;
+        border: 1px solid var(--border);
+        color: var(--muted);
+        background: transparent;
+      }
+      .project-link {
+        font-family: 'Geist Mono', monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: var(--navy);
+        border-bottom: 1px solid var(--navy);
+        padding-bottom: 2px;
+        transition: color 0.2s, border-color 0.2s;
+        display: inline-block;
+      }
+      .project-link:hover { color: var(--blue); border-color: var(--blue); }
 
       /* SKILLS */
       .skills-categories { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -183,7 +237,7 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="CV.pdf" class="btn-cv" target="_blank">⬇ Download CV</a></li>
+        <li><a href="cv-margareta.pdf" class="btn-cv" target="_blank">⬇ Download CV</a></li>
       </ul>
     </nav>
 
@@ -195,7 +249,7 @@
         <p class="hero-sub">Building practical digital solutions through AI, data, and modern web technologies. Informatics graduate passionate about developing impactful digital products, data-driven solutions, and intelligent systems.</p>
         <div class="hero-btns">
           <a href="#projects" class="btn-primary">View Projects</a>
-          <a href="CV.pdf" class="btn-outline" target="_blank">Download CV</a>
+          <a href="cv-margareta.pdf" class="btn-outline" target="_blank">Download CV</a>
           <a href="#contact" class="btn-outline">Contact Me</a>
         </div>
         <div class="hero-stats">
@@ -207,8 +261,7 @@
       <div class="hero-right">
         <div class="avatar-wrap">
           <div class="avatar-card">
-            <!-- <span class="avatar-initials">MV</span> -->
-            <img src="foto.png" alt="Foto Saya" style="width:100%;height:100%;object-fit:cover;">
+            <span class="avatar-initials">MV</span>
           </div>
           <div class="avatar-badge">
             <div class="badge-dot"></div>
@@ -232,163 +285,47 @@
         </div>
         <div class="about-cards reveal">
           <div class="about-card"><div class="about-icon">📍</div><div><div class="about-card-label">Location</div><div class="about-card-val">Semarang, Indonesia</div></div></div>
-          <div class="about-card"><div class="about-icon">🎓</div><div><div class="about-card-label">Education</div><div class="about-card-val">S1 Teknik Informatika</div></div></div>
-          <div class="about-card"><div class="about-icon">✉️</div><div><div class="about-card-label">Email</div><div class="about-card-val">margaretavalen16@email.com</div></div></div>
+          <div class="about-card"><div class="about-icon">🎓</div><div><div class="about-card-label">Education</div><div class="about-card-val">S1 Informatika</div></div></div>
+          <div class="about-card"><div class="about-icon">✉️</div><div><div class="about-card-label">Email</div><div class="about-card-val">margareta@email.com</div></div></div>
           <div class="about-card"><div class="about-icon">🌐</div><div><div class="about-card-label">Languages</div><div class="about-card-val">Indonesian, English</div></div></div>
         </div>
       </div>
     </section>
 
     <!-- PROJECTS -->
-    <!-- <section id="projects">
-      <div class="section-label reveal">Work</div>
-      <h2 class="section-title reveal">Featured Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card reveal">
-          <div class="project-thumb">🌾</div>
-          <div class="project-body">
-            <div class="project-name">RiceUp</div>
-            <div class="project-tagline">Rice Quality Classification System</div>
-            <div class="project-section-label">Problem</div>
-            <p class="project-desc">Farmers and sellers often struggle to classify rice quality consistently, causing pricing inaccuracies.</p>
-            <div class="project-section-label">Solution</div>
-            <p class="project-desc">CNN-based web app for real-time rice quality classification using image recognition.</p>
-            <div class="project-stack">
-              <span class="tech-tag">TensorFlow</span><span class="tech-tag">Keras</span><span class="tech-tag">Flask</span><span class="tech-tag">Python</span>
-            </div>
-            <ul class="project-results">
-              <li>Trained on 4,000+ images dataset</li>
-              <li>Achieved 94% classification accuracy</li>
-              <li>Real-time prediction deployment</li>
-            </ul>
-            <div class="project-links">
-              <a href="#" class="link-btn link-demo">Live Demo</a>
-              <a href="#" class="link-btn link-gh">GitHub</a>
-            </div>
-          </div>
-        </div>
-        <div class="project-card reveal">
-          <div class="project-thumb">📊</div>
-          <div class="project-body">
-            <div class="project-name">Fraud Detection Dashboard</div>
-            <div class="project-tagline">Anomaly Detection & Visualization</div>
-            <div class="project-section-label">Problem</div>
-            <p class="project-desc">Financial institutions need fast, accurate detection of fraudulent transactions from large volumes of data.</p>
-            <div class="project-section-label">Solution</div>
-            <p class="project-desc">Interactive dashboard with anomaly detection model, visual analytics, and real-time alert system.</p>
-            <div class="project-stack">
-              <span class="tech-tag">Scikit-learn</span><span class="tech-tag">React</span><span class="tech-tag">Python</span>
-            </div>
-            <ul class="project-results">
-              <li>91% precision anomaly detection</li>
-              <li>Processes 10K+ transactions/sec</li>
-              <li>Interactive filter & export features</li>
-            </ul>
-            <div class="project-links">
-              <a href="#" class="link-btn link-demo">Live Demo</a>
-              <a href="#" class="link-btn link-gh">GitHub</a>
-            </div>
-          </div>
-        </div>
-        <div class="project-card reveal">
-          <div class="project-thumb">🏢</div>
-          <div class="project-body">
-            <div class="project-name">Company Admin Platform</div>
-            <div class="project-tagline">Internal Workflow Management</div>
-            <div class="project-section-label">Problem</div>
-            <p class="project-desc">Manual administrative workflows caused inefficiencies and data silos across departments.</p>
-            <div class="project-section-label">Solution</div>
-            <p class="project-desc">Full-stack admin platform streamlining document management, user roles, and reporting.</p>
-            <div class="project-stack">
-              <span class="tech-tag">React</span><span class="tech-tag">Node.js</span><span class="tech-tag">MySQL</span><span class="tech-tag">Tailwind</span>
-            </div>
-            <ul class="project-results">
-              <li>Reduced admin processing time 60%</li>
-              <li>Role-based access for 5 departments</li>
-              <li>Fully responsive across devices</li>
-            </ul>
-            <div class="project-links">
-              <a href="#" class="link-btn link-demo">Live Demo</a>
-              <a href="#" class="link-btn link-gh">GitHub</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
     <section id="projects">
       <div class="section-label reveal">Work</div>
       <h2 class="section-title reveal">Featured Projects</h2>
       <div class="projects-grid">
+
         <div class="project-card reveal">
           <div class="project-num">001</div>
-          <h3 class="project-title">Dashboard Analytics</h3>
-          <p class="project-desc">Platform visualisasi data real-time untuk perusahaan logistik dengan 50.000+ pengguna aktif. Meningkatkan efisiensi operasional 40%.</p>
-          <div class="project-tags">
-            <span class="tag">React</span>
-            <span class="tag">D3.js</span>
-            <span class="tag">Node.js</span>
+          <h3 class="project-name">RiceUp — Rice Quality Classification System</h3>
+          <p class="project-desc">CNN-based web app for real-time rice quality classification using image recognition. Trained on 4,000+ images, achieving 94% accuracy.</p>
+          <div class="project-stack">
+            <span class="tech-tag">TensorFlow</span><span class="tech-tag">Keras</span><span class="tech-tag">Flask</span><span class="tech-tag">Python</span>
           </div>
-          <a href="#" class="project-link">Lihat Proyek →</a>
+          <a href="#" class="project-link">View Project →</a>
         </div>
 
         <div class="project-card reveal">
           <div class="project-num">002</div>
-          <h3 class="project-title">E-Commerce Redesign</h3>
-          <p class="project-desc">Revamp total UI/UX platform fashion lokal dari riset pengguna hingga implementasi. Konversi naik 28% dalam 3 bulan pertama.</p>
-          <div class="project-tags">
-            <span class="tag">Figma</span>
-            <span class="tag">Next.js</span>
-            <span class="tag">Tailwind</span>
+          <h3 class="project-name">Fraud Detection Dashboard</h3>
+          <p class="project-desc">Interactive anomaly detection dashboard for financial data. Features real-time alert system and visual analytics with 91% detection precision.</p>
+          <div class="project-stack">
+            <span class="tech-tag">Scikit-learn</span><span class="tech-tag">React</span><span class="tech-tag">Python</span>
           </div>
-          <a href="#" class="project-link">Lihat Proyek →</a>
+          <a href="#" class="project-link">View Project →</a>
         </div>
 
         <div class="project-card reveal">
           <div class="project-num">003</div>
-          <h3 class="project-title">Mobile Banking App</h3>
-          <p class="project-desc">Aplikasi perbankan digital untuk segmen muda. Proses onboarding diperpendek dari 12 langkah menjadi 4 dengan tetap memenuhi regulasi OJK.</p>
-          <div class="project-tags">
-            <span class="tag">React Native</span>
-            <span class="tag">UX Research</span>
+          <h3 class="project-name">Company Admin Platform</h3>
+          <p class="project-desc">Full-stack internal platform streamlining document management and admin workflows. Reduced processing time by 60% across 5 departments.</p>
+          <div class="project-stack">
+            <span class="tech-tag">React</span><span class="tech-tag">Node.js</span><span class="tech-tag">MySQL</span><span class="tech-tag">Tailwind</span>
           </div>
-          <a href="#" class="project-link">Lihat Proyek →</a>
-        </div>
-
-        <div class="project-card reveal">
-          <div class="project-num">004</div>
-          <h3 class="project-title">Design System</h3>
-          <p class="project-desc">Membangun design system dari nol untuk startup SaaS — 200+ komponen, dokumentasi lengkap, dan token yang terintegrasi dengan codebase.</p>
-          <div class="project-tags">
-            <span class="tag">Storybook</span>
-            <span class="tag">TypeScript</span>
-            <span class="tag">Figma</span>
-          </div>
-          <a href="#" class="project-link">Lihat Proyek →</a>
-        </div>
-
-        <div class="project-card reveal">
-          <div class="project-num">005</div>
-          <h3 class="project-title">AI Content Platform</h3>
-          <p class="project-desc">Platform pembuatan konten berbasis AI dengan antarmuka yang intuitif. Terintegrasi dengan GPT-4 untuk generasi teks dan DALL·E untuk visual.</p>
-          <div class="project-tags">
-            <span class="tag">Next.js</span>
-            <span class="tag">OpenAI API</span>
-            <span class="tag">Vercel</span>
-          </div>
-          <a href="#" class="project-link">Lihat Proyek →</a>
-        </div>
-
-        <div class="project-card reveal">
-          <div class="project-num">006</div>
-          <h3 class="project-title">Portfolio CMS</h3>
-          <p class="project-desc">Sistem manajemen konten khusus untuk creative professional — headless CMS dengan antarmuka editing yang terasa seperti Notion.</p>
-          <div class="project-tags">
-            <span class="tag">Sanity.io</span>
-            <span class="tag">Next.js</span>
-            <span class="tag">Vercel</span>
-          </div>
-          <a href="#" class="project-link">Lihat Proyek →</a>
+          <a href="#" class="project-link">View Project →</a>
         </div>
 
       </div>
