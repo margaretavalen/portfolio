@@ -713,63 +713,6 @@
       color: var(--cyan);
     }
 
-    /* ── LAB SECTION ── */
-    #lab { }
-    .lab-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    .lab-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 32px;
-      backdrop-filter: blur(20px);
-      transition: border-color .3s, box-shadow .3s, transform .3s;
-      position: relative;
-      overflow: hidden;
-    }
-    .lab-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, var(--blue), var(--cyan), var(--purple));
-      transform: scaleX(0);
-      transition: transform .4s ease;
-    }
-    .lab-card:hover::after { transform: scaleX(1); }
-    .lab-card:hover {
-      border-color: rgba(34,211,238,.25);
-      box-shadow: 0 0 40px var(--glow-blue);
-      transform: translateY(-4px);
-    }
-    .lab-icon { font-size: 36px; margin-bottom: 16px; }
-    .lab-title {
-      font-size: 1.05rem;
-      font-weight: 600;
-      letter-spacing: -.01em;
-      margin-bottom: 10px;
-    }
-    .lab-desc {
-      font-size: .85rem;
-      line-height: 1.65;
-      color: var(--muted);
-      margin-bottom: 16px;
-    }
-    .lab-tag {
-      display: inline-block;
-      font-family: 'Space Mono', monospace;
-      font-size: .58rem;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      padding: 3px 10px;
-      background: rgba(167,139,250,.1);
-      border: 1px solid rgba(167,139,250,.2);
-      border-radius: 4px;
-      color: var(--purple);
-    }
-
     /* ── CERTIFICATIONS ── */
     #certifications { }
     .cert-grid {
@@ -956,7 +899,6 @@
     <li><a href="#projects">Projects</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
-    <li><a href="#lab">Lab</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -1328,36 +1270,10 @@
   </div>
 </section>
 
-<!-- LAB -->
-<section id="lab">
-  <div class="section-label reveal">// 05 — Experiments</div>
-  <h2 class="section-title reveal">Mini Lab</h2>
-
-  <div class="lab-grid reveal">
-    <div class="lab-card">
-      <div class="lab-icon">🔬</div>
-      <div class="lab-title">CNN Visualizer</div>
-      <p class="lab-desc">Interactive tool for visualizing convolutional layer activations and feature maps from trained image classification models.</p>
-      <span class="lab-tag">Prototype</span>
-    </div>
-    <div class="lab-card">
-      <div class="lab-icon">📈</div>
-      <div class="lab-title">Anomaly Explorer</div>
-      <p class="lab-desc">Mini dashboard for uploading CSV financial data and instantly visualizing outliers using Isolation Forest and Z-score methods.</p>
-      <span class="lab-tag">Live Tool</span>
-    </div>
-    <div class="lab-card">
-      <div class="lab-icon">🎲</div>
-      <div class="lab-title">Synthetic Dataset Gen</div>
-      <p class="lab-desc">Lightweight Python utility that generates augmented training images for computer vision — flip, crop, noise, and color jitter.</p>
-      <span class="lab-tag">Open Source</span>
-    </div>
-  </div>
-</section>
 
 <!-- CERTIFICATIONS -->
 <section id="certifications">
-  <div class="section-label reveal">// 06 — Credentials</div>
+  <div class="section-label reveal">// 05 — Credentials</div>
   <h2 class="section-title reveal">Achievements & Certifications</h2>
   <div class="cert-grid reveal">
     <div class="cert-card">
