@@ -743,7 +743,7 @@
       font-size: 22px;
       margin: 0 auto 16px;
     }
-    .cert-name { font-size: .9rem; font-weight: 600; margin-bottom: 6px; }
+    .cert-name { font-size: .9rem; font-weight: 600; margin-bottom: 6px; text-decoration: none; color: inherit; }
     .cert-issuer {
       font-family: 'Space Mono', monospace;
       font-size: .62rem;
@@ -1276,12 +1276,11 @@
   <div class="section-label reveal">// 05 — Credentials</div>
   <h2 class="section-title reveal">Achievements & Certifications</h2>
   <div class="cert-grid reveal">
-    <div class="cert-card" onclick="window.open('https://learn.nvidia.com/certificates?id=ZEYzubmoT82T4Pxksw2NFw', '_blank')">>
-      <!-- <a href="https://learn.nvidia.com/certificates?id=ZEYzubmoT82T4Pxksw2NFw"></a> -->
+    <a class="cert-card" href="https://learn.nvidia.com/certificates?id=ZEYzubmoT82T4Pxksw2NFw">
       <div class="cert-icon-wrap">🧠</div>
       <div class="cert-name">Basic Deep Learning</div>
       <div class="cert-issuer">NVIDIA Deep Learning Institute </div>
-    </div>
+    </a>
     <div class="cert-card">
       <div class="cert-icon-wrap">📊</div>
       <div class="cert-name">Data Analytics Bootcamp</div>
