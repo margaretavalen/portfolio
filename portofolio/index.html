@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio — Margareta Valencia </title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #F5F3EE;
+      --ink: #111010;
+      --muted: #888074;
+      --accent: #C8501A;
+      --line: rgba(17,16,16,0.12);
+      --card-bg: #EDEBE5;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* Custom cursor */
+    .cursor {
+      position: fixed;
+      top: 0; left: 0;
+      width: 10px; height: 10px;
+      background: var(--accent);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%,-50%);
+      transition: width 0.2s, height 0.2s, background 0.2s;
+    }
+    .cursor-ring {
+      position: fixed;
+      top: 0; left: 0;
+      width: 36px; height: 36px;
+      border: 1.5px solid var(--accent);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%,-50%);
+      transition: transform 0.12s ease, width 0.2s, height 0.2s;
+      opacity: 0.6;
+    }
+    body:hover .cursor { opacity: 1; }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 64px;
+      mix-blend-mode: multiply;
+    }
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      text-decoration: none;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 0; height: 1px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 0 64px;
+      border-bottom: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg-text {
+      position: absolute;
+      bottom: -40px;
+      right: -20px;
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(120px, 18vw, 260px);
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(17,16,16,0.06);
+      user-select: none;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .hero-left { padding-top: 80px; }
+    .hero-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.2s forwards;
+    }
+    .hero-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(52px, 7vw, 96px);
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.4s forwards;
+    }
+    .hero-name em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .hero-desc {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--muted);
+      max-width: 420px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.6s forwards;
+    }
+    .hero-cta {
+      margin-top: 48px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.8s forwards;
+    }
+    .btn-primary {
+      display: inline-block;
+      padding: 14px 36px;
+      background: var(--ink);
+      color: var(--bg);
+      text-decoration: none;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: background 0.25s, color 0.25s;
+    }
+    .btn-primary:hover { background: var(--accent); }
+    .btn-ghost {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s;
+    }
+    .btn-ghost:hover { color: var(--ink); }
+    .btn-ghost::after { content: '→'; }
+
+    .hero-right {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding-top: 80px;
+      opacity: 0;
+      animation: fadeIn 1.2s ease 0.5s forwards;
+    }
+    .hero-photo-wrap {
+      position: relative;
+      width: 360px;
+      height: 440px;
+    }
+    .hero-photo-frame {
+      width: 100%;
+      height: 100%;
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .photo-placeholder {
+      font-family: 'DM Serif Display', serif;
+      font-size: 5rem;
+      color: var(--muted);
+      opacity: 0.3;
+    }
+    .hero-photo-wrap::before {
+      content: '';
+      position: absolute;
+      top: 16px; left: 16px;
+      right: -16px; bottom: -16px;
+      border: 1px solid var(--line);
+      z-index: -1;
+    }
+    .hero-stats {
+      position: absolute;
+      bottom: -24px;
+      left: -40px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      padding: 20px 28px;
+      display: flex;
+      gap: 32px;
+    }
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.8rem;
+      color: var(--ink);
+      display: block;
+    }
+    .stat-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* SECTION BASE */
+    section { padding: 100px 64px; border-bottom: 1px solid var(--line); }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 24px;
+      margin-bottom: 64px;
+    }
+    .section-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+    }
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    /* ABOUT */
+    #about .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .about-text p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .about-text p strong { color: var(--ink); font-weight: 500; }
+    .skills-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    .skill-item {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .skill-name {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 400;
+    }
+    .skill-level {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* PROJECTS */
+    #projects .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+    .project-card {
+      background: var(--bg);
+      padding: 40px;
+      transition: background 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .project-card:hover::before { transform: scaleX(1); }
+    .project-card:hover { background: var(--card-bg); }
+    .project-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      margin-bottom: 32px;
+    }
+    .project-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+    .project-desc {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+    .tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+    }
+    .project-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--ink);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .project-link:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* EXPERIENCE */
+    #experience .exp-list { display: flex; flex-direction: column; gap: 0; }
+    .exp-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 48px;
+      padding: 40px 0;
+      border-bottom: 1px solid var(--line);
+      transition: background 0.2s;
+    }
+    .exp-period {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      padding-top: 6px;
+    }
+    .exp-role {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem;
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
+    }
+    .exp-company {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      margin-bottom: 12px;
+    }
+    .exp-desc {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    /* CONTACT */
+    #contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .contact-left .big-cta {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(36px, 5vw, 64px);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    .contact-left .big-cta em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .contact-sub {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+    .contact-links { display: flex; flex-direction: column; gap: 16px; }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+      color: var(--ink);
+      font-size: 0.95rem;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+      transition: color 0.2s;
+    }
+    .contact-link:hover { color: var(--accent); }
+    .contact-icon {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      min-width: 80px;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 32px 64px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-copy {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+    .footer-built {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+    .footer-built span { color: var(--accent); }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* SCROLLBAR */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--muted); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav { padding: 24px 32px; }
+      #hero { grid-template-columns: 1fr; padding: 120px 32px 80px; }
+      .hero-right { display: none; }
+      section { padding: 72px 32px; }
+      #about .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      #projects .projects-grid { grid-template-columns: 1fr; }
+      .exp-item { grid-template-columns: 1fr; gap: 8px; }
+      #contact { grid-template-columns: 1fr; gap: 40px; }
+      footer { padding: 24px 32px; flex-direction: column; gap: 8px; }
+      .nav-links { gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">YN.</div>
+  <ul class="nav-links">
+    <li><a href="#about">Tentang</a></li>
+    <li><a href="#projects">Proyek</a></li>
+    <li><a href="#experience">Pengalaman</a></li>
+    <li><a href="#contact">Kontak</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <p class="hero-tag">UI/UX Designer & Front-End Developer</p>
+    <h1 class="hero-name">Margareta<br><em>Valencia</em></h1>
+    <p class="hero-desc">
+      Saya merancang dan membangun pengalaman digital yang bermakna — mempertemukan estetika dengan fungsi untuk menciptakan produk yang benar-benar bekerja.
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary">Lihat Karya</a>
+      <a href="#contact" class="btn-ghost">Hubungi Saya</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-frame">
+        <span class="photo-placeholder">:)</span>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-num">3+</span>
+          <span class="stat-label">Tahun Exp</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">20+</span>
+          <span class="stat-label">Proyek</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">12+</span>
+          <span class="stat-label">Klien</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-bg-text">Work</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header reveal">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Tentang Saya</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>Saya adalah seorang <strong>desainer dan developer</strong> yang berpusat di Semarang, Indonesia. Saya percaya bahwa desain yang baik dimulai dari pemahaman mendalam terhadap pengguna dan tujuan bisnis.</p>
+      <p>Dengan latar belakang di <strong>Teknik Informatika</strong>, saya menjembatani gap antara desain dan teknologi — menciptakan produk yang tidak hanya indah, tetapi juga cerdas dan mudah digunakan.</p>
+      <p>Di luar layar, saya aktif berkontribusi pada komunitas developer lokal dan gemar mengeksplorasi desain tipografi.</p>
+    </div>
+    <div class="skills-list reveal">
+      <div class="skill-item">
+        <span class="skill-name">UI / UX Design</span>
+        <span class="skill-level">Expert</span>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">React / Next.js</span>
+        <span class="skill-level">Advanced</span>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">Figma</span>
+        <span class="skill-level">Expert</span>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">TypeScript</span>
+        <span class="skill-level">Advanced</span>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">Node.js</span>
+        <span class="skill-level">Intermediate</span>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">Tailwind CSS</span>
+        <span class="skill-level">Expert</span>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">Design System</span>
+        <span class="skill-level">Advanced</span>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">Framer / Motion</span>
+        <span class="skill-level">Intermediate</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header reveal">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Proyek Pilihan</h2>
+  </div>
+  <div class="projects-grid">
+
+    <div class="project-card reveal">
+      <div class="project-num">001</div>
+      <h3 class="project-title">Dashboard Analytics</h3>
+      <p class="project-desc">Platform visualisasi data real-time untuk perusahaan logistik dengan 50.000+ pengguna aktif. Meningkatkan efisiensi operasional 40%.</p>
+      <div class="project-tags">
+        <span class="tag">React</span>
+        <span class="tag">D3.js</span>
+        <span class="tag">Node.js</span>
+      </div>
+      <a href="#" class="project-link">Lihat Proyek →</a>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-num">002</div>
+      <h3 class="project-title">E-Commerce Redesign</h3>
+      <p class="project-desc">Revamp total UI/UX platform fashion lokal dari riset pengguna hingga implementasi. Konversi naik 28% dalam 3 bulan pertama.</p>
+      <div class="project-tags">
+        <span class="tag">Figma</span>
+        <span class="tag">Next.js</span>
+        <span class="tag">Tailwind</span>
+      </div>
+      <a href="#" class="project-link">Lihat Proyek →</a>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-num">003</div>
+      <h3 class="project-title">Mobile Banking App</h3>
+      <p class="project-desc">Aplikasi perbankan digital untuk segmen muda. Proses onboarding diperpendek dari 12 langkah menjadi 4 dengan tetap memenuhi regulasi OJK.</p>
+      <div class="project-tags">
+        <span class="tag">React Native</span>
+        <span class="tag">UX Research</span>
+      </div>
+      <a href="#" class="project-link">Lihat Proyek →</a>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-num">004</div>
+      <h3 class="project-title">Design System</h3>
+      <p class="project-desc">Membangun design system dari nol untuk startup SaaS — 200+ komponen, dokumentasi lengkap, dan token yang terintegrasi dengan codebase.</p>
+      <div class="project-tags">
+        <span class="tag">Storybook</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">Figma</span>
+      </div>
+      <a href="#" class="project-link">Lihat Proyek →</a>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-num">005</div>
+      <h3 class="project-title">AI Content Platform</h3>
+      <p class="project-desc">Platform pembuatan konten berbasis AI dengan antarmuka yang intuitif. Terintegrasi dengan GPT-4 untuk generasi teks dan DALL·E untuk visual.</p>
+      <div class="project-tags">
+        <span class="tag">Next.js</span>
+        <span class="tag">OpenAI API</span>
+        <span class="tag">Vercel</span>
+      </div>
+      <a href="#" class="project-link">Lihat Proyek →</a>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-num">006</div>
+      <h3 class="project-title">Portfolio CMS</h3>
+      <p class="project-desc">Sistem manajemen konten khusus untuk creative professional — headless CMS dengan antarmuka editing yang terasa seperti Notion.</p>
+      <div class="project-tags">
+        <span class="tag">Sanity.io</span>
+        <span class="tag">Next.js</span>
+        <span class="tag">Vercel</span>
+      </div>
+      <a href="#" class="project-link">Lihat Proyek →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header reveal">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Pengalaman</h2>
+  </div>
+  <div class="exp-list">
+
+    <div class="exp-item reveal">
+      <div class="exp-period">2023 — Sekarang</div>
+      <div>
+        <div class="exp-role">Senior UI/UX Designer</div>
+        <div class="exp-company">PT. Teknologi Maju Indonesia</div>
+        <p class="exp-desc">Memimpin tim desain 4 orang dalam pengembangan produk fintech B2B. Bertanggung jawab atas design system, user research, dan kolaborasi cross-functional dengan engineering & product.</p>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-period">2021 — 2023</div>
+      <div>
+        <div class="exp-role">Front-End Developer</div>
+        <div class="exp-company">Startup XYZ (Remote)</div>
+        <p class="exp-desc">Membangun antarmuka pengguna responsif untuk platform SaaS dengan lebih dari 5.000 pelanggan aktif. Berkolaborasi langsung dengan desainer dan PM dalam sprint 2 minggu.</p>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-period">2020 — 2021</div>
+      <div>
+        <div class="exp-role">UI/UX Intern</div>
+        <div class="exp-company">Creative Agency ABC</div>
+        <p class="exp-desc">Terlibat dalam 8 proyek client meliputi brand identity, website, dan aplikasi mobile. Memenangkan penghargaan internal "Best Intern Project" semester pertama.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-left reveal">
+    <h2 class="big-cta">Mari kita buat sesuatu yang <em>berarti.</em></h2>
+    <p class="contact-sub">Terbuka untuk peluang full-time, proyek freelance, atau sekadar ngobrol soal desain dan teknologi.</p>
+    <a href="mailto:kamu@email.com" class="btn-primary">Kirim Email</a>
+  </div>
+  <div class="contact-links reveal">
+    <a href="mailto:kamu@email.com" class="contact-link">
+      <span class="contact-icon">Email</span>
+      kamu@email.com
+    </a>
+    <a href="https://linkedin.com/in/mrgrtvalen" target="_blank" class="contact-link">
+      <span class="contact-icon">LinkedIn</span>
+      /in/mrgrtvalen
+    </a>
+    <a href="https://github.com/mrgrtvalen" target="_blank" class="contact-link">
+      <span class="contact-icon">GitHub</span>
+      /mrgrtvalen
+    </a>
+    <a href="https://dribbble.com/mrgrtvalen" target="_blank" class="contact-link">
+      <span class="contact-icon">Dribbble</span>
+      /mrgrtvalen
+    </a>
+    <a href="/CV.pdf" target="_blank" class="contact-link">
+      <span class="contact-icon">Resume</span>
+      Download CV →
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-copy">© 2024 Nama Kamu. All rights reserved.</p>
+  <p class="footer-built">Dibangun dengan <span>♥</span> di Semarang, Indonesia</p>
+</footer>
+
+<script>
+  // Cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  function animCursor() {
+    cursor.style.left = mx + 'px';
+    cursor.style.top = my + 'px';
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px';
+    ring.style.top = ry + 'px';
+    requestAnimationFrame(animCursor);
+  }
+  animCursor();
+
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.width = '6px'; cursor.style.height = '6px';
+      ring.style.width = '50px'; ring.style.height = '50px';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.width = '10px'; cursor.style.height = '10px';
+      ring.style.width = '36px'; ring.style.height = '36px';
+    });
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80 * (Array.from(reveals).indexOf(entry.target) % 4));
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
