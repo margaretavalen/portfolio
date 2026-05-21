@@ -1337,65 +1337,95 @@
 </footer>
 
 <script>
-  // Cursor
-  const cur = document.getElementById('cursor');
-  const ring = document.getElementById('cursor-ring');
-  const glow = document.getElementById('mouse-glow');
-  let mx = 0, my = 0, rx = 0, ry = 0;
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    cur.style.left = mx + 'px'; cur.style.top = my + 'px';
-    glow.style.left = mx + 'px'; glow.style.top = my + 'px';
-  });
-  (function animRing() {
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
-    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-    requestAnimationFrame(animRing);
-  })();
-  document.querySelectorAll('a, button, .bento-card, .lab-card, .cert-card, .project-visual').forEach(el => {
-    el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
-    el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
-  });
+// ── CURSOR
+const cur = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+const glow = document.getElementById('cursor-glow');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+(function animCur(){
+  cur.style.left=mx+'px'; cur.style.top=my+'px';
+  rx+=(mx-rx)*.1; ry+=(my-ry)*.1;
+  ring.style.left=rx+'px'; ring.style.top=ry+'px';
+  glow.style.left=mx+'px'; glow.style.top=my+'px';
+  requestAnimationFrame(animCur);
+})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.width='4px';cur.style.height='4px';ring.style.width='50px';ring.style.height='50px';});
+  el.addEventListener('mouseleave',()=>{cur.style.width='8px';cur.style.height='8px';ring.style.width='32px';ring.style.height='32px';});
+});
 
-  // Typing animation
-  const phrases = [
-    'Building ML models that ship.',
-    'Turning data into decisions.',
-    'Full-stack + AI engineer.',
-    'Open to Work in 2025.',
-  ];
-  let pi = 0, ci = 0, deleting = false;
-  const el = document.getElementById('typing-text');
-  function type() {
-    const phrase = phrases[pi];
-    if (!deleting) {
-      el.textContent = phrase.slice(0, ++ci);
-      if (ci === phrase.length) { deleting = true; setTimeout(type, 1800); return; }
-    } else {
-      el.textContent = phrase.slice(0, --ci);
-      if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; setTimeout(type, 400); return; }
-    }
-    setTimeout(type, deleting ? 40 : 70);
+// ── TYPING ANIMATION
+const phrases=['Machine Learning Engineer','Creative Web Developer','Data Science Enthusiast','CNN & Deep Learning Nerd'];
+let pi=0,ci=0,deleting=false;
+function type(){
+  const el=document.getElementById('typed');
+  const phrase=phrases[pi];
+  if(!deleting){
+    el.textContent=phrase.slice(0,ci+1);ci++;
+    if(ci===phrase.length){setTimeout(()=>{deleting=true;type();},2000);return;}
+  }else{
+    el.textContent=phrase.slice(0,ci-1);ci--;
+    if(ci===0){deleting=false;pi=(pi+1)%phrases.length;}
   }
-  setTimeout(type, 1200);
+  setTimeout(type,deleting?40:80);
+}
+setTimeout(type,1200);
 
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-  }, { threshold: 0.08 });
-  reveals.forEach(el => obs.observe(el));
-
-  // Timeline scroll glow
-  const timelineEl = document.querySelector('.timeline');
-  if (timelineEl) {
-    window.addEventListener('scroll', () => {
-      const rect = timelineEl.getBoundingClientRect();
-      const progress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / (rect.height + window.innerHeight)));
-      timelineEl.style.setProperty('--progress', progress);
+// ── PARTICLES
+(function(){
+  const canvas=document.getElementById('particles-canvas');
+  const ctx=canvas.getContext('2d');
+  let w,h,particles=[];
+  function resize(){w=canvas.width=canvas.offsetWidth;h=canvas.height=canvas.offsetHeight;}
+  resize();window.addEventListener('resize',resize);
+  for(let i=0;i<60;i++)particles.push({
+    x:Math.random()*window.innerWidth,y:Math.random()*window.innerHeight,
+    vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,
+    r:Math.random()*1.5+.5,opacity:Math.random()*.4+.1
+  });
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    particles.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0)p.x=w;if(p.x>w)p.x=0;
+      if(p.y<0)p.y=h;if(p.y>h)p.y=0;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(6,182,212,${p.opacity})`;ctx.fill();
     });
+    // connections
+    for(let i=0;i<particles.length;i++)for(let j=i+1;j<particles.length;j++){
+      const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y;
+      const dist=Math.sqrt(dx*dx+dy*dy);
+      if(dist<120){
+        ctx.beginPath();
+        ctx.moveTo(particles[i].x,particles[i].y);
+        ctx.lineTo(particles[j].x,particles[j].y);
+        ctx.strokeStyle=`rgba(6,182,212,${.08*(1-dist/120)})`;
+        ctx.lineWidth=.5;ctx.stroke();
+      }
+    }
+    requestAnimationFrame(draw);
   }
+  draw();
+})();
+
+// ── SCROLL REVEAL
+const revealEls=document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});
+},{threshold:.1});
+revealEls.forEach(el=>observer.observe(el));
+
+// ── EXPERIENCE LINE FILL
+const expSection=document.getElementById('experience');
+const expFill=document.getElementById('exp-fill');
+window.addEventListener('scroll',()=>{
+  if(!expFill)return;
+  const rect=expSection.getBoundingClientRect();
+  const progress=Math.max(0,Math.min(1,(-rect.top+window.innerHeight*.5)/rect.height));
+  expFill.style.height=(progress*100)+'%';
+});
 </script>
 </body>
 </html>
