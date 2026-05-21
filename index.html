@@ -564,40 +564,43 @@ section{padding:100px 72px;position:relative}
 }
 .exp-bullets li::before{content:'→';color:var(--cyan);flex-shrink:0;font-size:.75rem;padding-top:3px}
 
-/* ── LAB ── */
-#lab{background:var(--bg2)}
-.lab-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.lab-card{
-  background:rgba(255,255,255,0.02);
-  border:1px solid var(--border);
-  border-radius:16px;padding:28px;
-  transition:all .3s;
-  position:relative;overflow:hidden;
-}
-.lab-card::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse at 50% 0%,rgba(6,182,212,0.06),transparent 60%);
-  opacity:0;transition:opacity .3s;
-}
-.lab-card:hover::before{opacity:1}
-.lab-card:hover{border-color:rgba(6,182,212,0.25);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,0.2)}
-.lab-icon{
-  font-size:1.6rem;margin-bottom:16px;
-  width:48px;height:48px;background:rgba(6,182,212,0.08);
-  border-radius:12px;display:flex;align-items:center;justify-content:center;
-  border:1px solid rgba(6,182,212,0.15);
-}
-.lab-title{font-family:'Sora',sans-serif;font-size:1rem;font-weight:600;margin-bottom:8px}
-.lab-desc{font-size:.82rem;color:var(--muted);line-height:1.65;margin-bottom:16px}
-.lab-status{
-  font-family:'JetBrains Mono',monospace;
-  font-size:.65rem;letter-spacing:.1em;
-  padding:3px 10px;border-radius:4px;
-  display:inline-block;
-}
-.lab-status.live{background:rgba(34,197,94,0.1);color:#4ADE80;border:1px solid rgba(34,197,94,0.2)}
-.lab-status.wip{background:rgba(251,191,36,0.08);color:#FCD34D;border:1px solid rgba(251,191,36,0.2)}
-
+/* ── CERTIFICATIONS ── */
+  #certifications { }
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .cert-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 24px;
+    backdrop-filter: blur(20px);
+    text-align: center;
+    transition: border-color .3s, box-shadow .3s, transform .3s;
+  }
+  .cert-card:hover {
+    border-color: rgba(59,130,246,.3);
+    box-shadow: 0 0 30px var(--glow-blue);
+    transform: translateY(-3px);
+  }
+  .cert-icon-wrap {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(59,130,246,.2), rgba(167,139,250,.2));
+    border: 1px solid rgba(59,130,246,.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    margin: 0 auto 16px;
+  }
+  .cert-name { font-size: .9rem; font-weight: 600; margin-bottom: 6px; }
+  .cert-issuer {
+    font-family: 'Space Mono', monospace;
+    font-size: .62rem;
+    letter-spacing: .08em;
+    color: var(--muted);
+  }
 /* ── CONTACT ── */
 #contact{
   background:var(--bg);
@@ -840,7 +843,7 @@ footer{
     <li><a href="#experience">Experience</a></li>
     <li><a href="#lab">Lab</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="cv-margareta.pdf" class="nav-cv" target="_blank">Download CV</a></li>
+    <li><a href="CV_en.pdf" class="nav-cv" target="_blank">Download CV</a></li>
   </ul>
 </nav>
 
@@ -873,20 +876,9 @@ footer{
     </p>
     <div class="hero-btns">
       <a href="#projects" class="btn-glow">View Projects</a>
-      <a href="cv-margareta.pdf" class="btn-ghost-glow" target="_blank">Download CV</a>
+      <a href="CV_en.pdf" class="btn-ghost-glow" target="_blank">Download CV</a>
       <a href="#contact" class="btn-ghost-glow">Get In Touch</a>
     </div>
-    <div class="hero-stats">
-      <div><div class="hstat-val">3+</div><div class="hstat-label">Projects</div></div>
-      <div><div class="hstat-val">1</div><div class="hstat-label">Internship</div></div>
-      <div><div class="hstat-val">94%</div><div class="hstat-label">ML Accuracy</div></div>
-      <div><div class="hstat-val">∞</div><div class="hstat-label">Curiosity</div></div>
-    </div>
-  </div>
-
-  <div class="scroll-hint">
-    <span>scroll</span>
-    <div class="scroll-line"></div>
   </div>
 </section>
 
@@ -905,10 +897,8 @@ footer{
         <span class="terminal-title">developer.json</span>
       </div>
       <div class="terminal-body">
-        <span class="t-comment">// Margareta Valencia Suci Handayani</span><br><br>
-        {<br>
-        <span class="t-indent"><span class="t-key">"name"</span>: <span class="t-str">"Valencia"</span>,</span><br>
-        <span class="t-indent"><span class="t-key">"role"</span>: <span class="t-str">"ML Engineer &amp; Web Developer"</span>,</span><br>
+        <span class="t-indent"><span class="t-key">"name"</span>: <span class="t-str">"Margareta Valencia Suci Handayani"</span>,</span><br>
+        <span class="t-indent"><span class="t-key">"role"</span>: <span class="t-str">"Data Analyst &amp; Web Developer"</span>,</span><br>
         <span class="t-indent"><span class="t-key">"based_in"</span>: <span class="t-str">"Semarang, Indonesia"</span>,</span><br>
         <span class="t-indent"><span class="t-key">"education"</span>: <span class="t-str">"S1 Informatika"</span>,</span><br>
         <span class="t-indent"><span class="t-key">"focus"</span>: [</span><br>
@@ -917,7 +907,6 @@ footer{
         <span class="t-indent" style="padding-left:48px"><span class="t-str">"Data Analytics"</span></span><br>
         <span class="t-indent">],</span><br>
         <span class="t-indent"><span class="t-key">"status"</span>: <span class="t-str">"Open to Work"</span>,</span><br>
-        <span class="t-indent"><span class="t-key">"ml_accuracy"</span>: <span class="t-num">0.94</span>,</span><br>
         <span class="t-indent"><span class="t-key">"available"</span>: <span class="t-bool">true</span></span><br>
         }<br><br>
         <span class="t-comment">// Let's build something great.</span>&nbsp;<span class="t-cursor"></span>
@@ -975,9 +964,10 @@ footer{
   <h2 class="sec-title reveal"><span class="grad">Featured Work</span></h2>
   <div class="projects-list">
 
+    <!-- Project 1 — RiceUp -->
     <div class="project-item">
       <div class="reveal-left">
-        <div class="project-num">001 / 003</div>
+        <div class="project-num">001</div>
         <h3 class="project-title">RiceUp — Rice Quality Classification</h3>
         <div class="project-sub">CNN · Computer Vision · Flask</div>
         <p class="project-desc-alt">Farmers and sellers struggle to classify rice quality consistently. Built a CNN-based web app using image recognition to solve this at scale.</p>
@@ -989,49 +979,110 @@ footer{
         <div class="project-stack-alt">
           <span class="tech-pill">TensorFlow</span><span class="tech-pill">Keras</span><span class="tech-pill">Flask</span><span class="tech-pill">Python</span><span class="tech-pill">CNN</span>
         </div>
-        <a href="#" class="project-link-alt">View Project →</a>
+        <a href="https://github.com/margaretavalen/RiceUp" class="project-link-alt">View Project →</a>
       </div>
       <div class="project-visual reveal-right">🌾</div>
     </div>
 
+    <!-- Project 2 — Hate Speech Detection -->
     <div class="project-item">
       <div class="reveal-right">
-        <div class="project-num">002 / 003</div>
-        <h3 class="project-title">Fraud Detection Dashboard</h3>
-        <div class="project-sub">Anomaly Detection · Data Visualization</div>
-        <p class="project-desc-alt">Financial institutions need fast anomaly detection from massive datasets. Built an interactive dashboard with ML-powered real-time alert system.</p>
+        <div class="project-num">002</div>
+        <h3 class="project-title">Hate Speech Detection</h3>
+        <div class="project-sub">Machine Learning · NLP</div>
+        <p class="project-desc-alt">Natural language processing model to detect and classify hate speech in Indonesian text. Combines text preprocessing, feature extraction, and classification pipeline.</p>
         <ul class="project-results-alt">
-          <li>91% precision anomaly detection</li>
-          <li>Processes 10,000+ transactions/sec</li>
-          <li>Interactive filter & CSV export</li>
+          <li>91% precision hate speech detection</li>
+          <li>Processes 1000+ data/sec</li>
+          <li>Developed a Hybrid NLP Architecture</li>
         </ul>
         <div class="project-stack-alt">
-          <span class="tech-pill">Scikit-learn</span><span class="tech-pill">React</span><span class="tech-pill">Python</span><span class="tech-pill">Recharts</span>
+          <span class="tech-pill">Scikit-learn</span><span class="tech-pill">Python</span><span class="tech-pill">Text Classification</span>
         </div>
-        <a href="#" class="project-link-alt">View Project →</a>
+        <a href="https://github.com/margaretavalen/Hate-Speech-Detection" class="project-link-alt">View Project →</a>
       </div>
       <div class="project-visual reveal-left">📊</div>
     </div>
 
+    <!-- Project 3 — Diabetes Detection -->
     <div class="project-item">
       <div class="reveal-left">
-        <div class="project-num">003 / 003</div>
-        <h3 class="project-title">Company Admin Platform</h3>
-        <div class="project-sub">Full-Stack · Workflow Automation</div>
-        <p class="project-desc-alt">Manual admin workflows caused cross-department bottlenecks. Built a full-stack platform with role-based access and automated reporting.</p>
+        <div class="project-num">003</div>
+        <h3 class="project-title">Diabetes Detection</h3>
+        <div class="project-sub">Machine Learning · Healthcare</div>
+        <p class="project-desc-alt">Machine learning model for early diabetes risk prediction based on clinical features. Implements data balancing, feature selection, and model evaluation with medical accuracy benchmarks.</p>
         <ul class="project-results-alt">
-          <li>Reduced processing time by 60%</li>
-          <li>Role-based access for 5 departments</li>
-          <li>Fully responsive across all devices</li>
+          <li>Achieved 85%+ prediction accuracy for early diabetes detection</li>
+          <li>Processed and analyzed 700+ patient health records</li>
+          <li>Built an interactive web-based prediction system with responsive user interface</li>
         </ul>
         <div class="project-stack-alt">
-          <span class="tech-pill">React</span><span class="tech-pill">Node.js</span><span class="tech-pill">MySQL</span><span class="tech-pill">Tailwind</span>
+          <span class="tech-pill">Scikit-learn</span><span class="tech-pill">Python</span><span class="tech-pill">Flask</span>
         </div>
-        <a href="#" class="project-link-alt">View Project →</a>
+        <a href="https://github.com/margaretavalen/Diabetes-Detection" class="project-link-alt">View Project →</a>
       </div>
-      <div class="project-visual reveal-right">🏢</div>
+      <div class="project-visual reveal-right">🩺</div>
     </div>
 
+    <!-- Project 4 — SIMANDA -->
+    <div class="project-item">
+      <div class="reveal-left">
+        <div class="project-num">004</div>
+        <h3 class="project-title">SIMANDA — Intern Management System</h3>
+        <div class="project-sub">Admin System · Government</div>
+        <p class="project-desc-alt">Full-stack government admin platform for document and data management. Streamlines workflows across departments, reducing manual processing time significantly.</p>
+        <ul class="project-results-alt">
+          <li>Managed 100+ internship participant records through centralized web-based management system</li>
+          <li>Developed a Flask-based administrative platform</li>
+          <li>Improved internship data processing efficiency through digitalized reporting and monitoring system</li>
+        </ul>
+        <div class="project-stack-alt">
+          <span class="tech-pill">Python</span><span class="tech-pill">Flask</span><span class="tech-pill">MySQL</span>
+        </div>
+        <a href="https://github.com/margaretavalen/SIMANDA" class="project-link-alt">View Project →</a>
+      </div>
+      <div class="project-visual reveal-right">🏛️</div>
+    </div>
+
+    <!-- Project 5 — E-Library -->
+    <div class="project-item">
+      <div class="reveal-left">
+        <div class="project-num">005</div>
+        <h3 class="project-title">E-Library — Digital Library Platform</h3>
+        <div class="project-sub">Full-Stack · Education</div>
+        <p class="project-desc-alt">Web-based digital library platform with book catalog, search, and borrowing management. Features user authentication and an intuitive reading interface.</p>
+        <ul class="project-results-alt">
+          <li>Developed a web-based e-library system using PHP Laravel framework</li>
+          <li>Implemented full CRUD functionality for book and library data management</li>
+          <li>Improved digital book administration through centralized database system</li>
+        </ul>
+        <div class="project-stack-alt">
+          <span class="tech-pill">PHP</span><span class="tech-pill">Laravel</span><span class="tech-pill">Node.js</span>
+        </div>
+        <a href="https://github.com/margaretavalen/E-Library" class="project-link-alt">View Project →</a>
+      </div>
+      <div class="project-visual reveal-right">📚</div>
+    </div>
+
+    <!-- Project 6 — Cleiv -->
+    <div class="project-item">
+      <div class="reveal-left">
+        <div class="project-num">006</div>
+        <h3 class="project-title">CLEIV — Digital Laundry Platform</h3>
+        <div class="project-sub">Frontend · Creative</div>
+        <p class="project-desc-alt">A creative frontend project showcasing modern UI/UX design principles with clean layouts, smooth interactions, and responsive design patterns.</p>
+        <ul class="project-results-alt">
+          <li>Developed a responsive laundry service website with modern user interface design</li>
+          <li>Built interactive frontend features for service booking and customer navigation</li>
+          <li>Improved user experience through mobile-friendly and responsive web layout</li>
+        </ul>
+        <div class="project-stack-alt">
+          <span class="tech-pill">HTML</span><span class="tech-pill">Tailwind</span><span class="tech-pill">JavaScript</span>
+        </div>
+        <a href="https://github.com/margaretavalen/CLEIV" class="project-link-alt">View Project →</a>
+      </div>
+      <div class="project-visual reveal-right">✨</div>
+    </div>
   </div>
 </section>
 
@@ -1046,7 +1097,7 @@ footer{
       <div class="bento-title">AI & Data Science</div>
       <div class="skill-tags">
         <span class="sk-tag">TensorFlow</span><span class="sk-tag">Keras</span>
-        <span class="sk-tag">Scikit-learn</span><span class="sk-tag">CNN</span>
+        <span class="sk-tag">Scikit-learn</span><span class="sk-tag">Computer Vision</span>
         <span class="sk-tag">Pandas</span><span class="sk-tag">NumPy</span>
       </div>
     </div>
@@ -1056,19 +1107,24 @@ footer{
       <div class="bento-desc">CNN accuracy on RiceUp classification project</div>
     </div>
     <div class="bento-card reveal">
+      <div class="bento-stat">3+</div>
+      <div class="bento-cat">Projects</div>
+      <div class="bento-desc">Shipped projects</div>
+    </div>
+    <div class="bento-card reveal">
       <div class="bento-icon">⚛️</div>
       <div class="bento-cat">Frontend</div>
       <div class="bento-title">React & Web UI</div>
       <div class="skill-tags">
-        <span class="sk-tag">React</span><span class="sk-tag">Tailwind</span><span class="sk-tag">JavaScript</span>
+        <span class="sk-tag">HTML5</span><span class="sk-tag">CSS3</span><span class="sk-tag">Bootstrap</span><span class="sk-tag">React</span><span class="sk-tag">Tailwind</span><span class="sk-tag">JavaScript</span>
       </div>
     </div>
     <div class="bento-card reveal">
       <div class="bento-icon">🐍</div>
       <div class="bento-cat">Backend</div>
-      <div class="bento-title">Python & Flask</div>
+      <div class="bento-title">Backend Development</div>
       <div class="skill-tags">
-        <span class="sk-tag">Python</span><span class="sk-tag">Flask</span><span class="sk-tag">Node.js</span><span class="sk-tag">PHP</span>
+        <span class="sk-tag">Python</span><span class="sk-tag">Flask</span><span class="sk-tag">PHP</span><span class="sk-tag">Laravel</span>
       </div>
     </div>
     <div class="bento-card reveal">
@@ -1076,21 +1132,16 @@ footer{
       <div class="bento-cat">Database</div>
       <div class="bento-title">Data Storage</div>
       <div class="skill-tags">
-        <span class="sk-tag">MySQL</span><span class="sk-tag">Firebase</span><span class="sk-tag">PostgreSQL</span>
+        <span class="sk-tag">MySQL</span><span class="sk-tag">SQL</span>
       </div>
     </div>
     <div class="bento-card reveal">
-      <div class="bento-stat">3+</div>
-      <div class="bento-cat">Projects</div>
-      <div class="bento-desc">Shipped real products end-to-end</div>
-    </div>
-    <div class="bento-card wide reveal">
       <div class="bento-icon">🛠️</div>
       <div class="bento-cat">Tools & Workflow</div>
       <div class="bento-title">Dev Ecosystem</div>
       <div class="skill-tags">
         <span class="sk-tag">Git</span><span class="sk-tag">Figma</span>
-        <span class="sk-tag">VS Code</span><span class="sk-tag">Jupyter</span>
+        <span class="sk-tag">VS Code</span><span class="sk-tag">Jupyter Notebook</span>
         <span class="sk-tag">Vercel</span><span class="sk-tag">Postman</span>
       </div>
     </div>
@@ -1104,86 +1155,61 @@ footer{
   <div class="exp-timeline reveal">
     <div class="exp-line"></div>
     <div class="exp-line-fill" id="exp-fill"></div>
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div class="exp-period">Oct 2025 - Jan 2026</div>
+      <div class="exp-role">Research Publication</div>
+      <div class="exp-company">Sinta 3 Journal Publication</div>
+      <ul class="exp-bullets">
+        <li>Published research paper in INFOTEKMESIN Journal focusing on Artificial Intelligence and Natural Language Processing.</li>
+        <li>Achieved 91% classification accuracy through NLP preprocessing, feature extraction, and deep learning optimization.</li>
+        <li>Conducted data preprocessing, model training, and evaluation to improve classification performance.</li>
+      </ul>
+    </div>
 
     <div class="exp-item">
       <div class="exp-dot"></div>
-      <div class="exp-period">2024 — Present</div>
+      <div class="exp-period">May - June 2024</div>
       <div class="exp-role">Web Developer Intern</div>
-      <div class="exp-company">Diskominfo — Dinas Komunikasi dan Informatika</div>
+      <div class="exp-company">Diskominfo — Dinas Komunikasi, Informatika, Statistik, Persandian Kota Semarang</div>
       <ul class="exp-bullets">
-        <li>Developed responsive internal web features improving cross-device usability for government staff.</li>
+        <li>Designed and developed a web-based internship management application using Python.</li>
         <li>Assisted database integration and admin workflows, reducing manual data entry by 40%.</li>
-        <li>Improved page responsiveness and load performance across 5 internal applications.</li>
-      </ul>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-dot"></div>
-      <div class="exp-period">2023</div>
-      <div class="exp-role">Machine Learning Project Lead</div>
-      <div class="exp-company">Capstone Project — Universitas</div>
-      <ul class="exp-bullets">
-        <li>Led a team of 4 in developing RiceUp, a CNN-based rice quality classification system.</li>
-        <li>Designed and trained deep learning model achieving 94% accuracy on 4,000+ image dataset.</li>
-        <li>Received highest project distinction in the batch from faculty evaluation panel.</li>
-      </ul>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-dot"></div>
-      <div class="exp-period">2023</div>
-      <div class="exp-role">Certifications & Bootcamps</div>
-      <div class="exp-company">Online Learning</div>
-      <ul class="exp-bullets">
-        <li>TensorFlow Developer Certificate — Google / Coursera</li>
-        <li>Google Data Analytics Certificate — Coursera</li>
-        <li>Data Analytics Bootcamp — Dicoding Indonesia</li>
+        <li>Improved page responsiveness and load performance.</li>
       </ul>
     </div>
 
   </div>
 </section>
 
-<!-- LAB -->
-<section id="lab">
-  <div class="sec-label reveal">05 — Lab</div>
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="sec-label reveal">05 — Certifications</div>
   <h2 class="sec-title reveal"><span class="grad">Experiments & Playground</span></h2>
-  <div class="lab-grid">
-    <div class="lab-card reveal">
-      <div class="lab-icon">🌾</div>
-      <div class="lab-title">Rice Quality Classifier</div>
-      <p class="lab-desc">Live demo of the CNN model. Upload any rice image and get instant quality classification with confidence score.</p>
-      <span class="lab-status live">● Live</span>
+  <div class="cert-grid reveal">
+    <div class="cert-card">
+      <div class="cert-icon-wrap">🧠</div>
+      <div class="cert-name">Basic Deep Learning</div>
+      <div class="cert-issuer">NVIDIA</div>
+      <a href="https://learn.nvidia.com/certificates?id=ZEYzubmoT82T4Pxksw2NFw" target="_blank" class="cert-link">View Certificate ↗</a>
     </div>
-    <div class="lab-card reveal">
-      <div class="lab-icon">📈</div>
-      <div class="lab-title">Data Visualizer</div>
-      <p class="lab-desc">Upload a CSV and explore it instantly — auto-generates charts, summary stats, and distribution graphs.</p>
-      <span class="lab-status wip">⏳ In Progress</span>
+    <div class="cert-card">
+      <div class="cert-icon-wrap">📊</div>
+      <div class="cert-name">Data Analytics Bootcamp</div>
+      <div class="cert-issuer">Dicoding Indonesia</div>
+      <div class="cert-no-link">Certificate coming soon</div>
     </div>
-    <div class="lab-card reveal">
-      <div class="lab-icon">🔍</div>
-      <div class="lab-title">Anomaly Detector</div>
-      <p class="lab-desc">Paste transaction data and the model highlights suspicious patterns using isolation forest algorithm.</p>
-      <span class="lab-status live">● Live</span>
+    <div class="cert-card">
+      <div class="cert-icon-wrap">🔍</div>
+      <div class="cert-name">Google Data Analytics</div>
+      <div class="cert-issuer">Google / Coursera</div>
+      <div class="cert-no-link">Certificate coming soon</div>
     </div>
-    <div class="lab-card reveal">
-      <div class="lab-icon">🤖</div>
-      <div class="lab-title">ML Model Comparator</div>
-      <p class="lab-desc">Interactive tool to compare Logistic Regression, Random Forest, and SVM on the same dataset side by side.</p>
-      <span class="lab-status wip">⏳ In Progress</span>
-    </div>
-    <div class="lab-card reveal">
-      <div class="lab-icon">🗺️</div>
-      <div class="lab-title">Indonesia Data Map</div>
-      <p class="lab-desc">Interactive choropleth map of Indonesian provinces with socioeconomic indicators layered on top.</p>
-      <span class="lab-status live">● Live</span>
-    </div>
-    <div class="lab-card reveal">
-      <div class="lab-icon">⚡</div>
-      <div class="lab-title">API Playground</div>
-      <p class="lab-desc">A lightweight REST API explorer built with Flask. Test endpoints, inspect responses, and export results.</p>
-      <span class="lab-status wip">⏳ Coming Soon</span>
+    <div class="cert-card">
+      <div class="cert-icon-wrap">🏆</div>
+      <div class="cert-name">Best Capstone Project</div>
+      <div class="cert-issuer">Universitas — 2023</div>
+      <div class="cert-no-link">Internal award</div>
     </div>
   </div>
 </section>
