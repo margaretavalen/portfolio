@@ -333,7 +333,7 @@
       font-size:.7rem;color:var(--muted);
       margin-left:auto;letter-spacing:.08em;
     }
-    .terminal-body{padding:28px;line-height:1.9;font-size:.82rem}
+    .terminal-body { padding: 24px; font-family: 'Space Mono', monospace; font-size: .8rem; line-height: 2; }
     .t-comment{color:#4B5563}
     .t-key{color:#38BDF8}
     .t-str{color:#34D399}
@@ -869,7 +869,7 @@
 
   <div class="hero-content">
     <div class="hero-tag">Available for Opportunities</div>
-    <h1 class="hero-name">VALENCIA</h1>
+    <h1 class="hero-name">MARGARETA VALENCIA</h1>
     <p class="hero-role"><span id="typed"></span><span class="typed-cursor">|</span></p>
     <p class="hero-desc">
       Informatics graduate building intelligent systems at the intersection of Machine Learning and modern web development. Turning data into decisions, ideas into products.
@@ -878,12 +878,6 @@
       <a href="#projects" class="btn-glow">View Projects</a>
       <a href="CV_en.pdf" class="btn-ghost-glow" target="_blank">Download CV</a>
       <a href="#contact" class="btn-ghost-glow">Get In Touch</a>
-    </div>
-    <div class="hero-stats">
-      <div><div class="hstat-val">94%</div><div class="hstat-label">Model ML Accuracy</div></div>
-      <div><div class="hstat-val">4K+</div><div class="hstat-label">Data Processing</div></div>
-      <div><div class="hstat-val">3+</div><div class="hstat-label">Projects</div></div>
-      <div><div class="hstat-val">2+</div><div class="hstat-label">Published Research Papers</div></div>
     </div>
   </div>
 
@@ -970,163 +964,129 @@
 
 <!-- PROJECTS -->
 <section id="projects">
-  <div class="section-label reveal">// 02 — Work</div>
-  <h2 class="section-title reveal">Featured Projects</h2>
-
-  <div class="project-alternating">
+  <div class="sec-label reveal">02 — Projects</div>
+  <h2 class="sec-title reveal"><span class="grad">Featured Work</span></h2>
+  <div class="projects-list">
 
     <!-- Project 1 — RiceUp -->
-    <div class="project-row reveal">
-      <div class="project-visual">
-        <div class="project-visual-bg">🌾</div>
-        <div class="project-visual-glow"></div>
-        <div class="project-hover-stack">
-          <span class="hover-tag">TensorFlow</span>
-          <span class="hover-tag">Keras</span>
-          <span class="hover-tag">Flask</span>
-          <span class="hover-tag">Python</span>
-        </div>
-      </div>
-      <div class="project-info">
-        <div class="project-num">001 / ML · Computer Vision</div>
+    <div class="project-item">
+      <div class="reveal-left">
+        <div class="project-num">001</div>
         <h3 class="project-title">RiceUp — Rice Quality Classification</h3>
-        <p class="project-desc">CNN-based web app for real-time rice quality classification using image recognition. Trained on 4,000+ images, achieving 94% accuracy across 5 quality categories.</p>
-        <div class="project-tags">
-          <span class="p-tag">TensorFlow</span>
-          <span class="p-tag">Keras</span>
-          <span class="p-tag">Flask</span>
-          <span class="p-tag">Python</span>
-          <span class="p-tag">CNN</span>
+        <div class="project-sub">CNN · Computer Vision · Flask</div>
+        <p class="project-desc-alt">Farmers and sellers struggle to classify rice quality consistently. Built a CNN-based web app using image recognition to solve this at scale.</p>
+        <ul class="project-results-alt">
+          <li>Trained on 4,000+ labeled images</li>
+          <li>Achieved 94% classification accuracy</li>
+          <li>Real-time prediction via REST API</li>
+        </ul>
+        <div class="project-stack-alt">
+          <span class="tech-pill">TensorFlow</span><span class="tech-pill">Keras</span><span class="tech-pill">Flask</span><span class="tech-pill">Python</span><span class="tech-pill">CNN</span>
         </div>
-        <a href="https://github.com/margaretavalen/RiceUp" target="_blank" class="project-link">View on GitHub <span>→</span></a>
+        <a href="https://github.com/margaretavalen/RiceUp" class="project-link-alt">View Project →</a>
       </div>
+      <div class="project-visual reveal-right">🌾</div>
     </div>
 
     <!-- Project 2 — Hate Speech Detection -->
-    <div class="project-row reverse reveal">
-      <div class="project-visual">
-        <div class="project-visual-bg">🛡️</div>
-        <div class="project-visual-glow"></div>
-        <div class="project-hover-stack">
-          <span class="hover-tag">NLP</span>
-          <span class="hover-tag">Python</span>
-          <span class="hover-tag">Scikit-learn</span>
-        </div>
-      </div>
-      <div class="project-info">
-        <div class="project-num">002 / ML · NLP</div>
+    <div class="project-item">
+      <div class="reveal-right">
+        <div class="project-num">002</div>
         <h3 class="project-title">Hate Speech Detection</h3>
-        <p class="project-desc">Natural language processing model to detect and classify hate speech in Indonesian text. Combines text preprocessing, feature extraction, and classification pipeline.</p>
-        <div class="project-tags">
-          <span class="p-tag">NLP</span>
-          <span class="p-tag">Python</span>
-          <span class="p-tag">Scikit-learn</span>
-          <span class="p-tag">Text Classification</span>
+        <div class="project-sub">Machine Learning · NLP</div>
+        <p class="project-desc-alt">Natural language processing model to detect and classify hate speech in Indonesian text. Combines text preprocessing, feature extraction, and classification pipeline.</p>
+        <ul class="project-results-alt">
+          <li>91% precision hate speech detection</li>
+          <li>Processes 1000+ data/sec</li>
+          <li>Developed a Hybrid NLP Architecture</li>
+        </ul>
+        <div class="project-stack-alt">
+          <span class="tech-pill">Scikit-learn</span><span class="tech-pill">Python</span><span class="tech-pill">Text Classification</span>
         </div>
-        <a href="https://github.com/margaretavalen/Hate-Speech-Detection" target="_blank" class="project-link">View on GitHub <span>→</span></a>
+        <a href="https://github.com/margaretavalen/Hate-Speech-Detection" class="project-link-alt">View Project →</a>
       </div>
+      <div class="project-visual reveal-left">📊</div>
     </div>
 
     <!-- Project 3 — Diabetes Detection -->
-    <div class="project-row reveal">
-      <div class="project-visual">
-        <div class="project-visual-bg">🩺</div>
-        <div class="project-visual-glow"></div>
-        <div class="project-hover-stack">
-          <span class="hover-tag">Scikit-learn</span>
-          <span class="hover-tag">Python</span>
-          <span class="hover-tag">Flask</span>
-        </div>
-      </div>
-      <div class="project-info">
-        <div class="project-num">003 / ML · Healthcare</div>
+    <div class="project-item">
+      <div class="reveal-left">
+        <div class="project-num">003</div>
         <h3 class="project-title">Diabetes Detection</h3>
-        <p class="project-desc">Machine learning model for early diabetes risk prediction based on clinical features. Implements data balancing, feature selection, and model evaluation with medical accuracy benchmarks.</p>
-        <div class="project-tags">
-          <span class="p-tag">Scikit-learn</span>
-          <span class="p-tag">Python</span>
-          <span class="p-tag">Flask</span>
-          <span class="p-tag">Healthcare AI</span>
+        <div class="project-sub">Machine Learning · Healthcare</div>
+        <p class="project-desc-alt">Machine learning model for early diabetes risk prediction based on clinical features. Implements data balancing, feature selection, and model evaluation with medical accuracy benchmarks.</p>
+        <ul class="project-results-alt">
+          <li>Achieved 85%+ prediction accuracy for early diabetes detection</li>
+          <li>Processed and analyzed 700+ patient health records</li>
+          <li>Built an interactive web-based prediction system with responsive user interface</li>
+        </ul>
+        <div class="project-stack-alt">
+          <span class="tech-pill">Scikit-learn</span><span class="tech-pill">Python</span><span class="tech-pill">Flask</span>
         </div>
-        <a href="https://github.com/margaretavalen/Diabetes-Detection" target="_blank" class="project-link">View on GitHub <span>→</span></a>
+        <a href="https://github.com/margaretavalen/Diabetes-Detection" class="project-link-alt">View Project →</a>
       </div>
+      <div class="project-visual reveal-right">🩺</div>
     </div>
 
     <!-- Project 4 — SIMANDA -->
-    <div class="project-row reverse reveal">
-      <div class="project-visual">
-        <div class="project-visual-bg">🏛️</div>
-        <div class="project-visual-glow"></div>
-        <div class="project-hover-stack">
-          <span class="hover-tag">PHP</span>
-          <span class="hover-tag">MySQL</span>
-          <span class="hover-tag">Bootstrap</span>
+    <div class="project-item">
+      <div class="reveal-left">
+        <div class="project-num">004</div>
+        <h3 class="project-title">SIMANDA — Intern Management System</h3>
+        <div class="project-sub">Admin System · Government</div>
+        <p class="project-desc-alt">Full-stack government admin platform for document and data management. Streamlines workflows across departments, reducing manual processing time significantly.</p>
+        <ul class="project-results-alt">
+          <li>Managed 100+ internship participant records through centralized web-based management system</li>
+          <li>Developed a Flask-based administrative platform</li>
+          <li>Improved internship data processing efficiency through digitalized reporting and monitoring system</li>
+        </ul>
+        <div class="project-stack-alt">
+          <span class="tech-pill">Python</span><span class="tech-pill">Flask</span><span class="tech-pill">MySQL</span>
         </div>
+        <a href="https://github.com/margaretavalen/SIMANDA" class="project-link-alt">View Project →</a>
       </div>
-      <div class="project-info">
-        <div class="project-num">004 / Full-Stack · Government</div>
-        <h3 class="project-title">SIMANDA — Admin Management System</h3>
-        <p class="project-desc">Full-stack government admin platform for document and data management. Streamlines workflows across departments, reducing manual processing time significantly.</p>
-        <div class="project-tags">
-          <span class="p-tag">PHP</span>
-          <span class="p-tag">MySQL</span>
-          <span class="p-tag">Bootstrap</span>
-          <span class="p-tag">Admin System</span>
-        </div>
-        <a href="https://github.com/margaretavalen/SIMANDA" target="_blank" class="project-link">View on GitHub <span>→</span></a>
-      </div>
+      <div class="project-visual reveal-right">🏛️</div>
     </div>
 
     <!-- Project 5 — E-Library -->
-    <div class="project-row reveal">
-      <div class="project-visual">
-        <div class="project-visual-bg">📚</div>
-        <div class="project-visual-glow"></div>
-        <div class="project-hover-stack">
-          <span class="hover-tag">React</span>
-          <span class="hover-tag">Node.js</span>
-          <span class="hover-tag">MySQL</span>
-        </div>
-      </div>
-      <div class="project-info">
-        <div class="project-num">005 / Full-Stack · EdTech</div>
+    <div class="project-item">
+      <div class="reveal-left">
+        <div class="project-num">005</div>
         <h3 class="project-title">E-Library — Digital Library Platform</h3>
-        <p class="project-desc">Web-based digital library platform with book catalog, search, and borrowing management. Features user authentication and an intuitive reading interface.</p>
-        <div class="project-tags">
-          <span class="p-tag">React</span>
-          <span class="p-tag">Node.js</span>
-          <span class="p-tag">MySQL</span>
-          <span class="p-tag">Tailwind</span>
+        <div class="project-sub">Full-Stack · Education</div>
+        <p class="project-desc-alt">Web-based digital library platform with book catalog, search, and borrowing management. Features user authentication and an intuitive reading interface.</p>
+        <ul class="project-results-alt">
+          <li>Developed a web-based e-library system using PHP Laravel framework</li>
+          <li>Implemented full CRUD functionality for book and library data management</li>
+          <li>Improved digital book administration through centralized database system</li>
+        </ul>
+        <div class="project-stack-alt">
+          <span class="tech-pill">PHP</span><span class="tech-pill">Laravel</span><span class="tech-pill">Node.js</span>
         </div>
-        <a href="https://github.com/margaretavalen/E-Library" target="_blank" class="project-link">View on GitHub <span>→</span></a>
+        <a href="https://github.com/margaretavalen/E-Library" class="project-link-alt">View Project →</a>
       </div>
+      <div class="project-visual reveal-right">📚</div>
     </div>
 
     <!-- Project 6 — Cleiv -->
-    <div class="project-row reverse reveal">
-      <div class="project-visual">
-        <div class="project-visual-bg">✨</div>
-        <div class="project-visual-glow"></div>
-        <div class="project-hover-stack">
-          <span class="hover-tag">React</span>
-          <span class="hover-tag">Tailwind</span>
-          <span class="hover-tag">JavaScript</span>
+    <div class="project-item">
+      <div class="reveal-left">
+        <div class="project-num">006</div>
+        <h3 class="project-title">CLEIV — Digital Laundry Platform</h3>
+        <div class="project-sub">Frontend · Creative</div>
+        <p class="project-desc-alt">A creative frontend project showcasing modern UI/UX design principles with clean layouts, smooth interactions, and responsive design patterns.</p>
+        <ul class="project-results-alt">
+          <li>Developed a responsive laundry service website with modern user interface design</li>
+          <li>Built interactive frontend features for service booking and customer navigation</li>
+          <li>Improved user experience through mobile-friendly and responsive web layout</li>
+        </ul>
+        <div class="project-stack-alt">
+          <span class="tech-pill">HTML</span><span class="tech-pill">Tailwind</span><span class="tech-pill">JavaScript</span>
         </div>
+        <a href="https://github.com/margaretavalen/CLEIV" class="project-link-alt">View Project →</a>
       </div>
-      <div class="project-info">
-        <div class="project-num">006 / Frontend · Creative</div>
-        <h3 class="project-title">Cleiv</h3>
-        <p class="project-desc">A creative frontend project showcasing modern UI/UX design principles with clean layouts, smooth interactions, and responsive design patterns.</p>
-        <div class="project-tags">
-          <span class="p-tag">HTML</span>
-          <span class="p-tag">Tailwind</span>
-          <span class="p-tag">JavaScript</span>
-          <span class="p-tag">UI/UX</span>
-        </div>
-        <a href="https://github.com/margaretavalen/CLEIV" target="_blank" class="project-link">View on GitHub <span>→</span></a>
-      </div>
+      <div class="project-visual reveal-right">✨</div>
     </div>
-
   </div>
 </section>
 
@@ -1155,7 +1115,7 @@
       <div class="bento-big-label">Peak Model Accuracy</div>
     </div>
     <div class="bento-card">
-      <div class="bento-big-num">6+</div>
+      <div class="bento-big-num">3+</div>
       <div class="bento-big-label">ML Projects Shipped</div>
     </div>
     <div class="bento-card">
@@ -1200,6 +1160,67 @@
         <span class="bento-pill">Jupyter Notebook</span>
         <span class="bento-pill">Google Colab</span> 
         <span class="bento-pill">Postman</span> 
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="sec-label reveal">03 — Skills</div>
+  <h2 class="sec-title reveal"><span class="grad">Tech Stack</span></h2>
+  <div class="bento">
+    <div class="bento-card wide reveal">
+      <div class="bento-icon">🧠</div>
+      <div class="bento-cat">Machine Learning</div>
+      <div class="bento-title">AI & Data Science</div>
+      <div class="skill-tags">
+        <span class="sk-tag">TensorFlow</span><span class="sk-tag">Keras</span>
+        <span class="sk-tag">Scikit-learn</span><span class="sk-tag">Computer Vision</span>
+        <span class="sk-tag">Pandas</span><span class="sk-tag">NumPy</span>
+      </div>
+    </div>
+    <div class="bento-card reveal">
+      <div class="bento-stat">94%</div>
+      <div class="bento-cat">Best Result</div>
+      <div class="bento-desc">CNN accuracy on RiceUp classification project</div>
+    </div>
+    <div class="bento-card reveal">
+      <div class="bento-icon">⚛️</div>
+      <div class="bento-cat">Frontend</div>
+      <div class="bento-title">Web UI</div>
+      <div class="skill-tags">
+        <span class="sk-tag">HTML5</span><span class="sk-tag">CSS3</span><span class="sk-tag">Bootstrap</span><span class="sk-tag">Tailwind</span><span class="sk-tag">JavaScript</span>
+      </div>
+    </div>
+    <div class="bento-card reveal">
+      <div class="bento-icon">🐍</div>
+      <div class="bento-cat">Backend</div>
+      <div class="bento-title">Backend Development</div>
+      <div class="skill-tags">
+        <span class="sk-tag">Python</span><span class="sk-tag">Flask</span><span class="sk-tag">Node.js</span><span class="sk-tag">PHP</span>
+      </div>
+    </div>
+    <div class="bento-card reveal">
+      <div class="bento-icon">🗄️</div>
+      <div class="bento-cat">Database</div>
+      <div class="bento-title">Data Storage</div>
+      <div class="skill-tags">
+        <span class="sk-tag">MySQL</span><span class="sk-tag">SQL</span>
+      </div>
+    </div>
+    <div class="bento-card reveal">
+      <div class="bento-stat">3+</div>
+      <div class="bento-cat">Projects</div>
+      <div class="bento-desc">Shipped real products end-to-end</div>
+    </div>
+    <div class="bento-card wide reveal">
+      <div class="bento-icon">🛠️</div>
+      <div class="bento-cat">Tools & Workflow</div>
+      <div class="bento-title">Dev Ecosystem</div>
+      <div class="skill-tags">
+        <span class="sk-tag">Git</span><span class="sk-tag">Figma</span>
+        <span class="sk-tag">VS Code</span><span class="sk-tag">Jupyter Notebook</span>
+        <span class="sk-tag">Vercel</span>
       </div>
     </div>
   </div>
