@@ -507,7 +507,42 @@
       }
       .project-results-alt li::before{content:'▸';color:var(--cyan);font-size:.7rem;flex-shrink:0;padding-top:2px}
 
-      /* ── SKILLS ── */
+  /* PROJECT DETAIL MODAL */
+  body.modal-open{overflow:hidden}
+  .project-modal{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:24px;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}
+  .project-modal.open{opacity:1;visibility:visible}
+  .project-modal-backdrop{position:absolute;inset:0;background:rgba(2,6,23,.82);backdrop-filter:blur(12px)}
+  .project-modal-card{position:relative;width:min(880px,100%);max-height:min(86vh,760px);overflow:auto;padding:30px;border:1px solid rgba(6,182,212,.28);border-radius:24px;background:linear-gradient(145deg,rgba(15,23,42,.99),rgba(8,15,30,.99));box-shadow:0 30px 100px rgba(0,0,0,.55),0 0 50px rgba(6,182,212,.08);transform:translateY(22px) scale(.97);transition:transform .3s}
+  .project-modal.open .project-modal-card{transform:translateY(0) scale(1)}
+  .project-modal-close{position:absolute;top:18px;right:18px;width:38px;height:38px;border:1px solid var(--border);border-radius:50%;background:rgba(255,255,255,.04);color:var(--text);font-size:1.25rem;cursor:pointer;transition:border-color .2s,background .2s,transform .2s}
+  .project-modal-close:hover{border-color:var(--cyan);background:rgba(6,182,212,.1);transform:rotate(90deg)}
+  .modal-head{display:flex;align-items:center;gap:18px;padding-right:42px;margin-bottom:24px}
+  .modal-icon{width:66px;height:66px;flex:0 0 66px;display:grid;place-items:center;font-size:1.9rem;border:1px solid rgba(6,182,212,.25);border-radius:16px;background:rgba(6,182,212,.06)}
+  .modal-kicker{font-family:'JetBrains Mono',monospace;font-size:.67rem;color:var(--cyan);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+  .modal-title{font-family:'Sora',sans-serif;font-size:clamp(1.35rem,3vw,2rem);line-height:1.2}
+  .modal-showcase{position:relative;min-height:260px;margin-bottom:24px;display:flex;align-items:flex-end;border:1px solid var(--border);border-radius:18px;overflow:hidden;background:radial-gradient(circle at 15% 20%,rgba(6,182,212,.16),transparent 38%),linear-gradient(135deg,#111c32,#0a1020)}
+  .modal-preview-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
+  .modal-preview-image.loaded{display:block}
+  .modal-media-placeholder{position:absolute;inset:0;display:grid;place-items:center;padding:30px;text-align:center}
+  .modal-media-placeholder.hidden{display:none}
+  .modal-placeholder-icon{font-size:2.2rem;margin-bottom:12px}
+  .modal-placeholder-title{font-family:'Sora',sans-serif;font-size:1rem;margin-bottom:7px}
+  .modal-placeholder-file{font-family:'JetBrains Mono',monospace;font-size:.64rem;color:var(--cyan);word-break:break-all}
+  .modal-highlight{position:relative;z-index:2;width:100%;padding:44px 28px 24px;font-family:'Sora',sans-serif;font-size:clamp(1.05rem,3vw,1.45rem);font-weight:700;line-height:1.35;background:linear-gradient(transparent,rgba(2,6,23,.92));text-shadow:0 2px 15px rgba(0,0,0,.8)}
+  .modal-detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px}
+  .modal-detail{padding:18px;border:1px solid var(--border);border-radius:14px;background:rgba(255,255,255,.018)}
+  .modal-detail-label{font-family:'JetBrains Mono',monospace;font-size:.64rem;color:var(--cyan);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+  .modal-detail p{font-size:.82rem;color:var(--muted2);line-height:1.7}
+  .modal-footer{display:flex;align-items:center;justify-content:space-between;gap:18px;padding-top:22px;border-top:1px solid var(--border)}
+  .modal-tech{display:flex;flex-wrap:wrap;gap:7px}
+  .modal-actions{display:flex;align-items:center;gap:9px;flex:0 0 auto}
+  .modal-demo,.modal-github{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:11px 18px;border-radius:9px;font-family:'JetBrains Mono',monospace;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none}
+  .modal-demo{border:1px solid var(--border);color:var(--muted2);background:rgba(255,255,255,.025)}
+  .modal-demo[aria-disabled="true"]{opacity:.55;cursor:not-allowed}
+  .modal-github{background:var(--cyan);color:var(--bg)}
+  .modal-github:hover{box-shadow:0 0 24px rgba(6,182,212,.3)}
+
+  /* ── SKILLS ── */
       #skills{background:var(--bg2)}
       .bento{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:auto;gap:16px}
       .bento-card{
@@ -903,8 +938,16 @@
       @media(max-width:480px){
         .hero-name{font-size:clamp(40px,14vw,72px)}
         .nav-links .nav-cv{display:none}
-        .about-stat-grid{grid-template-columns:repeat(2,1fr)}
-        .projects-list{grid-template-columns:1fr}
+    .about-stat-grid{grid-template-columns:repeat(2,1fr)}
+    .projects-list{grid-template-columns:1fr}
+    .project-modal{padding:12px}
+    .project-modal-card{padding:22px 18px;max-height:92vh;border-radius:18px}
+    .modal-head{gap:12px}
+    .modal-icon{width:52px;height:52px;flex-basis:52px;font-size:1.5rem}
+    .modal-showcase{min-height:210px}
+    .modal-detail-grid{grid-template-columns:1fr}
+    .modal-footer{align-items:stretch;flex-direction:column}
+    .modal-actions{align-items:stretch;flex-direction:column}
         .bento{grid-template-columns:1fr}
         .bento-card.wide{grid-column:span 1}
         .hero-stats .hstat-val{font-size:1.2rem}
@@ -1197,6 +1240,52 @@
       </div>
     </section>
 
+    <div class="project-modal" id="project-modal" aria-hidden="true">
+      <div class="project-modal-backdrop" data-modal-close></div>
+      <article class="project-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-project-title">
+        <button class="project-modal-close" type="button" data-modal-close aria-label="Close project details">×</button>
+        <div class="modal-head">
+          <div class="modal-icon" id="modal-project-icon"></div>
+          <div>
+            <div class="modal-kicker" id="modal-project-category"></div>
+            <h3 class="modal-title" id="modal-project-title"></h3>
+          </div>
+        </div>
+        <div class="modal-showcase">
+          <img class="modal-preview-image" id="modal-project-image" src="" alt="">
+          <div class="modal-media-placeholder" id="modal-media-placeholder">
+            <div>
+              <div class="modal-placeholder-icon">🖼️</div>
+              <div class="modal-placeholder-title">Project screenshot / demo preview</div>
+              <div class="modal-placeholder-file" id="modal-placeholder-file"></div>
+            </div>
+          </div>
+          <div class="modal-highlight" id="modal-project-highlight"></div>
+        </div>
+        <div class="modal-detail-grid">
+          <div class="modal-detail">
+            <div class="modal-detail-label">01 — Problem</div>
+            <p id="modal-project-problem"></p>
+          </div>
+          <div class="modal-detail">
+            <div class="modal-detail-label">02 — My Contribution</div>
+            <p id="modal-project-contribution"></p>
+          </div>
+          <div class="modal-detail">
+            <div class="modal-detail-label">03 — Result</div>
+            <p id="modal-project-result"></p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="modal-tech" id="modal-project-tech"></div>
+          <div class="modal-actions">
+            <a class="modal-demo" id="modal-project-demo" href="#" target="_blank" rel="noopener noreferrer" aria-disabled="true">Live Demo — Soon</a>
+            <a class="modal-github" id="modal-project-github" href="#" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
     <!-- SKILLS -->
     <section id="skills">
       <div class="sec-label reveal">03 — Skills</div>
@@ -1386,6 +1475,86 @@
           project.classList.toggle('is-hidden',selected!=='all'&&project.dataset.category!==selected);
         });
       });
+    });
+
+    // PROJECT DETAIL MODAL
+    const projectDetails={
+      'RiceUp — Rice Quality Classification':{contribution:'Built the end-to-end CNN pipeline, prepared the image dataset, trained and evaluated the model, then integrated inference into a Flask web application.',result:'Trained on 4,000+ labeled images, achieved 94% classification accuracy, and enabled real-time predictions through a REST API.',highlight:'94% accuracy across 4,000+ labeled rice images'},
+      'Hate Speech Detection':{contribution:'Developed the Indonesian text preprocessing, feature extraction, and classification workflow, then evaluated a hybrid NLP architecture.',result:'Reached 91% precision and built a pipeline capable of processing more than 1,000 text records per second.',highlight:'91% precision for Indonesian hate-speech detection'},
+      'Diabetes Detection':{contribution:'Processed clinical data, handled class imbalance, selected relevant features, compared models, and built the responsive prediction interface.',result:'Analyzed 700+ patient records and achieved more than 85% prediction accuracy for early diabetes risk detection.',highlight:'85%+ accuracy from 700+ patient records'},
+      'AQI Prediction':{contribution:'Prepared pollutant and environmental data, performed exploratory analysis, engineered the prediction workflow, and evaluated the machine learning model.',result:'Produced a reusable AQI prediction pipeline that turns environmental measurements into data-driven air-quality estimates.',highlight:'Environmental data transformed into actionable AQI predictions'},
+      'SIMANDA — Intern Management System':{contribution:'Designed and developed the Flask-based administration platform, database workflow, participant management, reporting, and monitoring features.',result:'Centralized more than 100 internship participant records and improved the efficiency of administrative reporting and monitoring.',highlight:'100+ internship records managed in one system'},
+      'E-Library — Digital Library Platform':{contribution:'Developed the Laravel application, database structure, authentication, catalog search, and complete CRUD workflow for library data.',result:'Created a centralized digital book administration system with a clearer catalog and more efficient borrowing management.',highlight:'Centralized catalog, borrowing, and book administration'},
+      'CLEIV — Digital Laundry Platform':{contribution:'Designed and built the responsive frontend, service-booking interactions, navigation flow, and mobile-friendly interface.',result:'Delivered a modern laundry-service experience that works consistently across desktop and mobile screen sizes.',highlight:'Responsive booking experience across every device'}
+    };
+    const projectMedia={
+      'RiceUp — Rice Quality Classification':{image:'assets/projects/riceup.jpg',demo:''},
+      'Hate Speech Detection':{image:'assets/projects/hate-speech.jpg',demo:''},
+      'Diabetes Detection':{image:'assets/projects/diabetes.jpg',demo:''},
+      'AQI Prediction':{image:'assets/projects/aqi-prediction.jpg',demo:''},
+      'SIMANDA — Intern Management System':{image:'assets/projects/simanda.jpg',demo:''},
+      'E-Library — Digital Library Platform':{image:'assets/projects/e-library.jpg',demo:''},
+      'CLEIV — Digital Laundry Platform':{image:'assets/projects/cleiv.jpg',demo:''}
+    };
+    const projectModal=document.getElementById('project-modal');
+    const modalCard=projectModal.querySelector('.project-modal-card');
+    let modalTrigger=null;
+    function openProjectModal(project,trigger){
+      const title=project.querySelector('.project-title').textContent.trim();
+      const detail=projectDetails[title];
+      const media=projectMedia[title];
+      const tech=[...project.querySelectorAll('.tech-pill')].map(item=>item.textContent.trim());
+      document.getElementById('modal-project-icon').textContent=project.querySelector('.project-visual').textContent.trim();
+      document.getElementById('modal-project-category').textContent=project.querySelector('.project-sub').textContent.trim();
+      document.getElementById('modal-project-title').textContent=title;
+      document.getElementById('modal-project-problem').textContent=project.querySelector('.project-desc-alt').textContent.trim();
+      document.getElementById('modal-project-contribution').textContent=detail.contribution;
+      document.getElementById('modal-project-result').textContent=detail.result;
+      document.getElementById('modal-project-highlight').textContent=detail.highlight;
+      document.getElementById('modal-project-tech').innerHTML=tech.map(item=>`<span class="tech-pill">${item}</span>`).join('');
+      document.getElementById('modal-project-github').href=trigger.href;
+      const previewImage=document.getElementById('modal-project-image');
+      const placeholder=document.getElementById('modal-media-placeholder');
+      previewImage.classList.remove('loaded');
+      placeholder.classList.remove('hidden');
+      previewImage.alt=`${title} project preview`;
+      document.getElementById('modal-placeholder-file').textContent=`Upload: ${media.image}`;
+      previewImage.onload=()=>{previewImage.classList.add('loaded');placeholder.classList.add('hidden')};
+      previewImage.onerror=()=>{previewImage.classList.remove('loaded');placeholder.classList.remove('hidden')};
+      previewImage.src=media.image;
+      const demoButton=document.getElementById('modal-project-demo');
+      if(media.demo){
+        demoButton.href=media.demo;demoButton.textContent='Open Live Demo →';demoButton.setAttribute('aria-disabled','false');
+      }else{
+        demoButton.href='#';demoButton.textContent='Live Demo — Soon';demoButton.setAttribute('aria-disabled','true');
+      }
+      modalTrigger=trigger;
+      projectModal.classList.add('open');
+      projectModal.setAttribute('aria-hidden','false');
+      document.body.classList.add('modal-open');
+      requestAnimationFrame(()=>projectModal.querySelector('.project-modal-close').focus());
+    }
+    function closeProjectModal(){
+      projectModal.classList.remove('open');
+      projectModal.setAttribute('aria-hidden','true');
+      document.body.classList.remove('modal-open');
+      if(modalTrigger)modalTrigger.focus();
+    }
+    document.querySelectorAll('.project-link-alt').forEach(link=>link.addEventListener('click',event=>{
+      event.preventDefault();openProjectModal(link.closest('.project-item'),link);
+    }));
+    projectModal.querySelectorAll('[data-modal-close]').forEach(el=>el.addEventListener('click',closeProjectModal));
+    document.getElementById('modal-project-demo').addEventListener('click',event=>{
+      if(event.currentTarget.getAttribute('aria-disabled')==='true')event.preventDefault();
+    });
+    document.addEventListener('keydown',event=>{
+      if(event.key==='Escape'&&projectModal.classList.contains('open'))closeProjectModal();
+      if(event.key==='Tab'&&projectModal.classList.contains('open')){
+        const focusable=[...modalCard.querySelectorAll('button,a[href]')];
+        const first=focusable[0],last=focusable[focusable.length-1];
+        if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus()}
+        else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus()}
+      }
     });
 
     // ── CURSOR
