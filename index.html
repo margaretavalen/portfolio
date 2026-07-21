@@ -521,7 +521,7 @@
   .modal-kicker{font-family:'JetBrains Mono',monospace;font-size:.67rem;color:var(--cyan);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
   .modal-title{font-family:'Sora',sans-serif;font-size:clamp(1.35rem,3vw,2rem);line-height:1.2}
   .modal-showcase{position:relative;min-height:360px;aspect-ratio:16/8.5;margin-bottom:24px;display:flex;align-items:flex-end;border:1px solid var(--border);border-radius:18px;overflow:hidden;background:radial-gradient(circle at 15% 20%,rgba(6,182,212,.16),transparent 38%),linear-gradient(135deg,#111c32,#0a1020)}
-  .modal-preview-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
+  .modal-preview-image{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;display:none;background:#080f1e}
   .modal-preview-image.loaded{display:block}
   .modal-media-placeholder{position:absolute;inset:0;display:grid;place-items:center;padding:30px;text-align:center}
   .modal-media-placeholder.hidden{display:none}
@@ -1175,12 +1175,7 @@
               <li>Evaluated model performance for AQI prediction</li>
             </ul>
             <div class="project-stack-alt">
-              <span class="tech-pill">Python</span>
-              <span class="tech-pill">Pandas</span>
-              <span class="tech-pill">NumPy</span>
-              <span class="tech-pill">Scikit-learn</span>
-              <span class="tech-pill">Matplotlib</span>
-              <span class="tech-pill">React.js</span>
+              <span class="tech-pill">Python</span><span class="tech-pill">Pandas</span><span class="tech-pill">NumPy</span><span class="tech-pill">Scikit-learn</span><span class="tech-pill">Matplotlib</span>
             </div>
             <a href="https://github.com/margaretavalen/AQI-Prediction" target="_blank" rel="noopener noreferrer" class="project-link-alt">View Project →</a>
           </div>
@@ -1508,7 +1503,7 @@
       'RiceUp — Rice Quality Classification':{image:'assets/projects/riceup.jpg',demo:''},
       'Hate Speech Detection':{image:'assets/projects/hate-speech.jpg',demo:''},
       'Diabetes Detection':{image:'assets/projects/diabetes.jpg',demo:''},
-      'AQI Prediction':{image:'assets/projects/aqi-prediction.jpg',demo:'https://air-quality-index-predict.vercel.app/'},
+      'AQI Prediction':{image:'assets/projects/aqi-prediction.jpg',demo:''},
       'SIMANDA — Intern Management System':{image:'assets/projects/simanda.jpg',demo:''},
       'E-Library — Digital Library Platform':{image:'assets/projects/e-library.jpg',demo:''},
       'CLEIV — Digital Laundry Platform':{image:'assets/projects/cleiv.jpg',demo:''}
