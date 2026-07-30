@@ -450,7 +450,7 @@
     font-size:.72rem;font-weight:700;letter-spacing:.15em;
     color:var(--cyan);opacity:1;margin-bottom:16px;
   }
-  .project-num::after{content:'JUL 2026';color:#9c9290;font-weight:400;letter-spacing:.12em}
+  .project-num::after{content:attr(data-date);color:#9c9290;font-weight:400;letter-spacing:.12em}
   .project-title{
     font-family:'Sora',sans-serif;
     font-size:clamp(21px,2.5vw,28px);
@@ -485,7 +485,7 @@
   }
   .project-link-alt:hover{gap:12px;box-shadow:0 0 24px rgba(255,201,77,.25);transform:translateY(-2px)}
   .project-visual{
-    order:-1;width:100%;height:clamp(220px,26vw,330px);margin:0;
+    order:-1;width:100%;height:auto;aspect-ratio:16/9;margin:0;
     background:radial-gradient(circle at 30% 35%,rgba(6,182,212,.16),transparent 42%),linear-gradient(135deg,#111c29,#07101b);
     border:0;border-radius:0;
     display:flex;align-items:center;justify-content:center;
@@ -947,7 +947,7 @@
     .projects-list{grid-template-columns:1fr}
     .project-item{padding:0}
     .project-item>div:first-child{padding:25px}
-    .project-visual{width:100%;height:clamp(240px,48vw,360px)}
+    .project-visual{width:100%;height:auto}
 
         /* skills bento */
         .bento{grid-template-columns:1fr 1fr}
@@ -968,7 +968,7 @@
     .about-stat-grid{grid-template-columns:repeat(2,1fr)}
     .projects-list{grid-template-columns:1fr}
     .project-item>div:first-child{padding:24px 20px 26px}
-    .project-visual{height:230px;font-size:3.5rem}
+    .project-visual{height:auto;font-size:3.5rem}
     .project-desc-alt{font-size:.9rem}
     .project-modal{padding:12px}
     .project-modal-card{padding:22px 18px;max-height:92vh;border-radius:18px}
@@ -1132,7 +1132,7 @@
         <!-- Project 1 — RiceUp -->
         <div class="project-item" data-category="ml">
           <div class="reveal-left">
-            <div class="project-num">001</div>
+            <div class="project-num" data-date="MAR - JUNE 2025">001</div>
             <h3 class="project-title">RiceUp — Rice Quality Classification</h3>
             <div class="project-sub">CNN · Computer Vision · Flask</div>
             <p class="project-desc-alt">Farmers and sellers struggle to classify rice quality consistently. Built a CNN-based web app using image recognition to solve this at scale.</p>
@@ -1152,7 +1152,7 @@
         <!-- Project 2 — Hate Speech Detection -->
         <div class="project-item" data-category="ml">
           <div class="reveal-right">
-            <div class="project-num">002</div>
+            <div class="project-num" data-date="OCT - DEC 2025">002</div>
             <h3 class="project-title">Hate Speech Detection</h3>
             <div class="project-sub">Machine Learning · NLP</div>
             <p class="project-desc-alt">Natural language processing model to detect and classify hate speech in Indonesian text. Combines text preprocessing, feature extraction, and classification pipeline.</p>
@@ -1172,7 +1172,7 @@
         <!-- Project 3 — Diabetes Detection -->
         <div class="project-item" data-category="ml">
           <div class="reveal-left">
-            <div class="project-num">003</div>
+            <div class="project-num" data-date="JAN 2026">003</div>
             <h3 class="project-title">Diabetes Detection</h3>
             <div class="project-sub">Machine Learning · Healthcare</div>
             <p class="project-desc-alt">Machine learning model for early diabetes risk prediction based on clinical features. Implements data balancing, feature selection, and model evaluation with medical accuracy benchmarks.</p>
@@ -1192,7 +1192,7 @@
         <!-- Project 4 — AirScope AQI Prediction -->
         <div class="project-item" data-category="ml">
           <div class="reveal-left">
-            <div class="project-num">004</div>
+            <div class="project-num" data-date="DEC 2024 - JAN 2025">004</div>
             <h3 class="project-title">AirScope - Air Quality Index Prediction</h3>
             <div class="project-sub">Machine Learning · Environmental Data</div>
             <p class="project-desc-alt">Machine learning project for predicting Air Quality Index values from environmental and air-pollutant data, supporting data-driven air quality monitoring.</p>
@@ -1212,7 +1212,7 @@
         <!-- Project 5 — SIMANDA -->
         <div class="project-item" data-category="web">
           <div class="reveal-left">
-            <div class="project-num">005</div>
+            <div class="project-num" data-date="MAY - JUNE 2025">005</div>
             <h3 class="project-title">SIMANDA — Intern Management System</h3>
             <div class="project-sub">Admin System · Government</div>
             <p class="project-desc-alt">Full-stack government admin platform for document and data management. Streamlines workflows across departments, reducing manual processing time significantly.</p>
@@ -1232,7 +1232,7 @@
         <!-- Project 6 — E-Library -->
         <div class="project-item" data-category="web">
           <div class="reveal-left">
-            <div class="project-num">006</div>
+            <div class="project-num" data-date="JUNE 2023">006</div>
             <h3 class="project-title">E-Library — Digital Library Platform</h3>
             <div class="project-sub">Full-Stack · Education</div>
             <p class="project-desc-alt">Web-based digital library platform with book catalog, search, and borrowing management. Features user authentication and an intuitive reading interface.</p>
@@ -1252,7 +1252,7 @@
         <!-- Project 7 — Cleiv -->
         <div class="project-item" data-category="web">
           <div class="reveal-left">
-            <div class="project-num">007</div>
+            <div class="project-num" data-date="OCT 2022">007</div>
             <h3 class="project-title">CLEIV — Digital Laundry Platform</h3>
             <div class="project-sub">Frontend · Creative</div>
             <p class="project-desc-alt">A creative frontend project showcasing modern UI/UX design principles with clean layouts, smooth interactions, and responsive design patterns.</p>
@@ -1554,7 +1554,10 @@
       const preview=document.createElement('img');
       preview.className='project-card-image';
       preview.alt=`${title} preview`;
-      preview.onload=()=>preview.classList.add('loaded');
+      preview.onload=()=>{
+        visual.style.aspectRatio=`${preview.naturalWidth}/${preview.naturalHeight}`;
+        preview.classList.add('loaded');
+      };
       preview.onerror=()=>{
         if(!preview.src.endsWith('project-placeholder.svg'))preview.src='assets/projects/project-placeholder.svg';
       };
