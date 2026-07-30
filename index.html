@@ -433,39 +433,42 @@
       .project-filter:hover{color:var(--text);border-color:rgba(6,182,212,.45)}
       .project-filter.active{color:var(--bg);background:var(--cyan);border-color:var(--cyan);box-shadow:0 0 24px rgba(6,182,212,.22)}
       .project-filter:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
-      .projects-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:28px}
-      .project-item{
-        display:flex;flex-direction:column;gap:0;
-        padding:22px;
-        border:1px solid var(--border);border-radius:18px;
-        background:rgba(255,255,255,.018);
-        position:relative;min-width:0;
-        transition:transform .3s,border-color .3s,background .3s,box-shadow .3s;
-      }
-      .project-item:hover{transform:translateY(-5px);border-color:rgba(6,182,212,.3);background:rgba(6,182,212,.025);box-shadow:0 18px 50px rgba(0,0,0,.2)}
-      .project-item>div:first-child{display:flex;flex-direction:column;flex:1}
-      .project-num{
-        font-family:'JetBrains Mono',monospace;
-        font-size:.68rem;letter-spacing:.15em;
-        color:var(--cyan);opacity:.5;
-        margin-bottom:10px;
-      }
-      .project-title{
-        font-family:'Sora',sans-serif;
-        font-size:clamp(18px,2vw,22px);
-        font-weight:700;letter-spacing:-.02em;
-        margin-bottom:12px;line-height:1.2;
-      }
-      .project-sub{
-        font-family:'JetBrains Mono',monospace;
-        font-size:.72rem;color:var(--cyan);
-        margin-bottom:16px;letter-spacing:.06em;
-      }
-      .project-desc-alt{
-        font-size:.84rem;line-height:1.7;
-        color:var(--muted2);margin-bottom:18px;
-      }
-      .project-stack-alt{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 20px}
+  .projects-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin:34px auto 0;max-width:1180px}
+  .project-item{
+    display:flex;flex-direction:column;gap:0;
+    padding:0;overflow:hidden;
+    border:1px solid var(--border);border-radius:16px;
+    background:linear-gradient(145deg,rgba(15,23,42,.96),rgba(8,15,30,.98));
+    position:relative;min-width:0;
+    transition:transform .3s,border-color .3s,background .3s,box-shadow .3s;
+  }
+  .project-item:hover{transform:translateY(-5px);border-color:rgba(6,182,212,.42);background:linear-gradient(145deg,rgba(15,23,42,.98),rgba(8,15,30,1));box-shadow:0 24px 70px rgba(0,0,0,.32)}
+  .project-item>div:first-child{display:flex;flex-direction:column;flex:1;padding:25px;border-top:1px solid var(--border)}
+  .project-num{
+    font-family:'JetBrains Mono',monospace;
+    display:flex;align-items:center;justify-content:space-between;
+    font-size:.72rem;font-weight:700;letter-spacing:.15em;
+    color:var(--cyan);opacity:1;margin-bottom:16px;
+  }
+  .project-num::after{content:'JUL 2026';color:#9c9290;font-weight:400;letter-spacing:.12em}
+  .project-title{
+    font-family:'Sora',sans-serif;
+    font-size:clamp(21px,2.5vw,28px);
+    font-weight:700;letter-spacing:-.02em;
+    margin-bottom:11px;line-height:1.2;color:var(--text);
+  }
+  .project-sub{
+    font-family:'JetBrains Mono',monospace;
+    font-size:.7rem;color:var(--cyan);
+    margin-bottom:18px;letter-spacing:.04em;
+  }
+  .project-desc-alt{
+    max-width:880px;font-size:.86rem;line-height:1.7;
+    color:var(--muted2);margin-bottom:18px;
+  }
+  .project-stack-alt{display:flex;flex-wrap:wrap;gap:0;margin:0 0 18px}
+  .project-stack-alt .tech-pill{padding:0;background:none;border:0;color:#67e8f9;border-radius:0;font-size:.68rem;font-weight:600}
+  .project-stack-alt .tech-pill:not(:last-child)::after{content:' · ';padding:0 7px;color:rgba(6,182,212,.4)}
       .tech-pill{
         font-family:'JetBrains Mono',monospace;
         font-size:.65rem;padding:4px 12px;
@@ -473,39 +476,59 @@
         border:1px solid rgba(59,130,246,0.2);
         color:#93C5FD;border-radius:6px;letter-spacing:.04em;
       }
-      .project-link-alt{
-        display:inline-flex;align-items:center;gap:8px;
-        font-family:'JetBrains Mono',monospace;
-        font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;
-        text-decoration:none;color:var(--cyan);
-        transition:gap .2s;margin-top:auto;
-      }
-      .project-link-alt:hover{gap:16px}
-      .project-visual{
-        order:-1;width:58px;height:58px;margin-bottom:20px;
-        background:linear-gradient(135deg,rgba(15,23,42,1),rgba(30,41,59,1));
-        border:1px solid var(--border);
-        border-radius:14px;
-        display:flex;align-items:center;justify-content:center;
-        font-size:1.65rem;
-        position:relative;overflow:hidden;
-        transition:box-shadow .4s,border-color .4s;
-      }
+  .project-link-alt{
+    align-self:flex-start;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:none;
+    text-decoration:none;color:#21140b;background:#ffc94d;border:1px solid #ffc94d;border-radius:999px;
+    padding:12px 20px;transition:gap .2s,box-shadow .2s,transform .2s;margin-top:20px;
+  }
+  .project-link-alt:hover{gap:12px;box-shadow:0 0 24px rgba(255,201,77,.25);transform:translateY(-2px)}
+  .project-visual{
+    order:-1;width:100%;height:clamp(220px,26vw,330px);margin:0;
+    background:radial-gradient(circle at 30% 35%,rgba(6,182,212,.16),transparent 42%),linear-gradient(135deg,#111c29,#07101b);
+    border:0;border-radius:0;
+    display:flex;align-items:center;justify-content:center;
+    font-size:3.8rem;
+    position:relative;overflow:hidden;
+    transition:box-shadow .4s,border-color .4s;
+  }
       .project-visual::before{
         content:'';position:absolute;inset:0;
         background:radial-gradient(ellipse at 30% 50%,rgba(59,130,246,0.08),transparent 60%);
       }
-      .project-item:hover .project-visual{
-        box-shadow:0 0 28px rgba(6,182,212,0.15);
-        border-color:rgba(6,182,212,0.3);
-      }
-      .project-item.is-hidden{display:none}
-      .project-results-alt{display:none}
-      .project-results-alt li{
-        font-size:.82rem;color:var(--muted2);
-        padding:5px 0;display:flex;gap:10px;
-      }
-      .project-results-alt li::before{content:'▸';color:var(--cyan);font-size:.7rem;flex-shrink:0;padding-top:2px}
+  .project-item:hover .project-visual{
+    box-shadow:none;border-color:transparent;
+  }
+  .project-item.is-hidden{display:none}
+  .project-results-alt{display:none}
+  .project-card-tags{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+  .project-card-tags li{
+    font-family:'JetBrains Mono',monospace;font-size:.62rem;color:#93eaf5;
+    padding:6px 11px;border:1px solid rgba(6,182,212,.35);border-radius:999px;
+  }
+  .project-results-alt li{
+    font-family:'JetBrains Mono',monospace;font-size:.65rem;color:#e8b643;
+    padding:7px 13px;display:block;border:1px solid rgba(245,178,45,.55);border-radius:999px;
+  }
+  .project-results-alt li::before{display:none}
+  .project-card-image{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;background:#080f18;opacity:0;transition:opacity .3s}
+  .project-card-image.loaded{opacity:1}
+  .project-case-study{width:100%;margin-top:auto;padding:13px 15px;border:1px solid rgba(6,182,212,.2);border-radius:9px;background:transparent;text-align:left;font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.08em;color:var(--muted2);text-transform:uppercase;cursor:pointer;transition:border-color .2s,background .2s,color .2s}
+  .project-case-study:hover,.project-case-study[aria-expanded="true"]{border-color:rgba(6,182,212,.5);background:rgba(6,182,212,.06);color:var(--text)}
+  .project-case-study span{display:inline-block;color:var(--cyan);margin-right:10px;font-weight:700;transition:transform .25s}
+  .project-case-study[aria-expanded="true"] span{transform:rotate(45deg)}
+  .project-inline-detail{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .35s,opacity .25s}
+  .project-inline-detail.open{grid-template-rows:1fr;opacity:1}
+  .project-inline-inner{overflow:hidden}
+  .project-inline-content{padding-top:18px;display:grid;gap:14px}
+  .project-inline-block{padding:14px;border-left:2px solid rgba(6,182,212,.5);background:rgba(6,182,212,.035)}
+  .project-inline-label{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.1em;color:var(--cyan);text-transform:uppercase;margin-bottom:7px}
+  .project-inline-block p,.project-inline-features li{font-size:.78rem;line-height:1.65;color:var(--muted2)}
+  .project-inline-features{list-style:none;display:grid;gap:5px}
+  .project-inline-features li::before{content:'✓';color:var(--cyan);margin-right:8px}
+  .project-card-action{align-self:flex-start;display:inline-flex;align-items:center;justify-content:center;margin-top:12px;padding:10px 17px;border:1px solid rgba(6,182,212,.38);border-radius:999px;background:rgba(6,182,212,.07);font-family:'JetBrains Mono',monospace;font-size:.67rem;font-weight:700;color:var(--cyan);text-decoration:none;transition:background .2s,color .2s,box-shadow .2s,transform .2s}
+  .project-card-action:hover{background:var(--cyan);color:var(--bg);box-shadow:0 0 22px rgba(6,182,212,.22);transform:translateY(-2px)}
 
   /* PROJECT DETAIL MODAL */
   body.modal-open{overflow:hidden}
@@ -919,11 +942,12 @@
         }
 
         /* projects */
-        .project-filters{margin-top:22px;gap:8px}
-        .project-filter{flex:1 1 auto;padding:9px 12px}
-        .projects-list{grid-template-columns:repeat(2,minmax(0,1fr))}
-        .project-item{padding:20px}
-        .project-visual{width:54px;height:54px}
+    .project-filters{margin-top:22px;gap:8px}
+    .project-filter{flex:1 1 auto;padding:9px 12px}
+    .projects-list{grid-template-columns:1fr}
+    .project-item{padding:0}
+    .project-item>div:first-child{padding:25px}
+    .project-visual{width:100%;height:clamp(240px,48vw,360px)}
 
         /* skills bento */
         .bento{grid-template-columns:1fr 1fr}
@@ -943,6 +967,9 @@
         .nav-links .nav-cv{display:none}
     .about-stat-grid{grid-template-columns:repeat(2,1fr)}
     .projects-list{grid-template-columns:1fr}
+    .project-item>div:first-child{padding:24px 20px 26px}
+    .project-visual{height:230px;font-size:3.5rem}
+    .project-desc-alt{font-size:.9rem}
     .project-modal{padding:12px}
     .project-modal-card{padding:22px 18px;max-height:92vh;border-radius:18px}
     .modal-head{gap:12px}
@@ -1035,13 +1062,13 @@
             <span class="t-indent"><span class="t-key">"based_in"</span>: <span class="t-str">"Semarang, Indonesia"</span>,</span><br>
             <span class="t-indent"><span class="t-key">"education"</span>: <span class="t-str">"S1 Informatika"</span>,</span><br>
             <span class="t-indent"><span class="t-key">"focus"</span>: [</span><br>
-            <span class="t-indent" style="padding-left:48px"><span class="t-str">"Data Scientist"</span>,</span><br>
             <span class="t-indent" style="padding-left:48px"><span class="t-str">"Web Development"</span>,</span><br>
+            <span class="t-indent" style="padding-left:48px"><span class="t-str">"Data Scientist"</span>,</span><br>
             <span class="t-indent" style="padding-left:48px"><span class="t-str">"Data Analytics"</span></span><br>
             <span class="t-indent">],</span><br>
             <span class="t-indent"><span class="t-key">"status"</span>: <span class="t-str">"Open to Work"</span>,</span><br>
             <span class="t-indent"><span class="t-key">"available"</span>: <span class="t-bool">true</span></span><br>
-            <br><br>
+            }<br><br>
             <span class="t-comment">// Let's build something great.</span>&nbsp;<span class="t-cursor"></span>
           </div>
         </div>
@@ -1098,7 +1125,7 @@
       <div class="project-filters reveal" role="group" aria-label="Filter projects by category">
         <button class="project-filter active" type="button" data-filter="all" aria-pressed="true">All Projects</button>
         <button class="project-filter" type="button" data-filter="web" aria-pressed="false">Web Development</button>
-        <button class="project-filter" type="button" data-filter="ml" aria-pressed="false">Machine Learning</button>
+        <button class="project-filter" type="button" data-filter="ml" aria-pressed="false">Data Scientist</button>
         <button class="project-filter" type="button" data-filter="data" aria-pressed="false">Data Analysis</button>
       </div>
       <div class="projects-list">
@@ -1240,36 +1267,6 @@
             <a href="https://github.com/margaretavalen/CLEIV" class="project-link-alt">View Project →</a>
           </div>
           <div class="project-visual reveal-right">✨</div>
-        </div>
-        <!-- Project 8 — Kopi Maju -->
-        <div class="project-item" data-category="web">
-          <div class="reveal-left">
-            <div class="project-num">008</div>
-            <h3 class="project-title">Kopi Maju — Coffee Shop Website</h3>
-            <div class="project-sub">Full-Stack Web · Laravel</div>
-            <p class="project-desc-alt">
-              A full-stack coffee shop website developed with Laravel, featuring a
-              dynamic product catalog, category browsing, and a responsive user
-              interface for an engaging online coffee shopping experience.
-            </p>
-            <ul class="project-results-alt">
-              <li>Developed a dynamic coffee shop website using PHP and Laravel</li>
-              <li>Implemented product management and category-based menu browsing</li>
-              <li>Built a responsive interface with database-driven content and user-friendly navigation</li>
-            </ul>
-            <div class="project-stack-alt">
-              <span class="tech-pill">PHP</span>
-              <span class="tech-pill">Laravel</span>
-              <span class="tech-pill">MySQL</span>
-              <span class="tech-pill">Blade</span>
-              <span class="tech-pill">JavaScript</span>
-              <span class="tech-pill">Bootstrap</span>
-            </div>
-            <a href="https://github.com/margaretavalen/Coffee-Shop" class="project-link-alt">
-              View Project →
-            </a>
-          </div>
-          <div class="project-visual reveal-right">☕</div>
         </div>
       </div>
     </section>
@@ -1527,8 +1524,7 @@
       'AirScope - Air Quality Index Prediction':{contribution:'Prepared pollutant and environmental data, performed exploratory analysis, engineered the prediction workflow, and evaluated the machine learning model.',result:'Produced a reusable AQI prediction pipeline that turns environmental measurements into data-driven air-quality estimates.',highlight:'Environmental data transformed into actionable AQI predictions'},
       'SIMANDA — Intern Management System':{contribution:'Designed and developed the Flask-based administration platform, database workflow, participant management, reporting, and monitoring features.',result:'Centralized more than 100 internship participant records and improved the efficiency of administrative reporting and monitoring.',highlight:'100+ internship records managed in one system'},
       'E-Library — Digital Library Platform':{contribution:'Developed the Laravel application, database structure, authentication, catalog search, and complete CRUD workflow for library data.',result:'Created a centralized digital book administration system with a clearer catalog and more efficient borrowing management.',highlight:'Centralized catalog, borrowing, and book administration'},
-      'CLEIV — Digital Laundry Platform':{contribution:'Designed and built the responsive frontend, service-booking interactions, navigation flow, and mobile-friendly interface.',result:'Delivered a modern laundry-service experience that works consistently across desktop and mobile screen sizes.',highlight:'Responsive booking experience across every device'},
-      'Kopi Maju — Coffee Shop Website': {contribution: 'Developed a full-stack coffee shop website using PHP and Laravel, including dynamic product management, category browsing, database integration, and responsive interface design.',result: 'Delivered a dynamic and responsive coffee shop platform that provides an organized and user-friendly experience for browsing coffee products.', highlight: 'Dynamic coffee product browsing powered by Laravel'},
+      'CLEIV — Digital Laundry Platform':{contribution:'Designed and built the responsive frontend, service-booking interactions, navigation flow, and mobile-friendly interface.',result:'Delivered a modern laundry-service experience that works consistently across desktop and mobile screen sizes.',highlight:'Responsive booking experience across every device'}
     };
     const projectMedia={
       'RiceUp — Rice Quality Classification':{image:'assets/projects/riceup.jpg',demo:''},
@@ -1537,18 +1533,80 @@
       'AirScope - Air Quality Index Prediction':{image:'assets/projects/aqi-prediction.jpg',demo:'https://air-quality-index-predict.vercel.app/'},
       'SIMANDA — Intern Management System':{image:'assets/projects/simanda.jpg',demo:''},
       'E-Library — Digital Library Platform':{image:'assets/projects/e-library.jpg',demo:''},
-      'CLEIV — Digital Laundry Platform':{image:'assets/projects/cleiv.jpg',demo:''},
-      'Kopi Maju — Coffee Shop Website':{image:'assets/projects/kopi-maju.jpg',demo:''}
+      'CLEIV — Digital Laundry Platform':{image:'assets/projects/cleiv.jpg',demo:''}
     };
+    const projectCardTags={
+      'RiceUp — Rice Quality Classification':['Computer Vision','Image Classification','REST API'],
+      'Hate Speech Detection':['Natural Language Processing','Text Classification','Model Evaluation'],
+      'Diabetes Detection':['Healthcare ML','Risk Prediction','Web Application'],
+      'AirScope - Air Quality Index Prediction':['Environmental Analytics','AQI Forecasting','Data Pipeline'],
+      'SIMANDA — Intern Management System':['Admin Dashboard','Data Management','Reporting System'],
+      'E-Library — Digital Library Platform':['Book Catalog','CRUD System','Authentication'],
+      'CLEIV — Digital Laundry Platform':['Responsive UI','Service Booking','Mobile First']
+    };
+    projectItems.forEach(project=>{
+      const title=project.querySelector('.project-title').textContent.trim();
+      const media=projectMedia[title]||{image:'assets/projects/project-placeholder.jpg',demo:''};
+      const features=[...project.querySelectorAll('.project-results-alt li')].map(item=>item.textContent.trim());
+      const detail=projectDetails[title]||{contribution:'Designed and implemented the main project workflow, interface, and technical solution.',result:features.join(' '),highlight:features[0]||'A practical solution built to address the project challenge.'};
+      const visual=project.querySelector('.project-visual');
+      visual.textContent='';
+      const preview=document.createElement('img');
+      preview.className='project-card-image';
+      preview.alt=`${title} preview`;
+      preview.onload=()=>preview.classList.add('loaded');
+      preview.onerror=()=>{
+        if(!preview.src.endsWith('project-placeholder.svg'))preview.src='assets/projects/project-placeholder.svg';
+      };
+      preview.src=media.image;
+      visual.appendChild(preview);
+      const tags=document.createElement('ul');
+      tags.className='project-card-tags';
+      tags.innerHTML=(projectCardTags[title]||['Case Study','Product Development','User Experience']).map(tag=>`<li>${tag}</li>`).join('');
+      project.querySelector('.project-stack-alt').after(tags);
+      const projectLink=project.querySelector('.project-link-alt');
+      const caseStudy=document.createElement('button');
+      caseStudy.type='button';
+      caseStudy.className='project-case-study';
+      caseStudy.setAttribute('aria-expanded','false');
+      caseStudy.innerHTML='<span>+</span> Case Study — Problem → Approach → Impact';
+      projectLink.before(caseStudy);
+      const inlineDetail=document.createElement('div');
+      inlineDetail.className='project-inline-detail';
+      inlineDetail.innerHTML=`<div class="project-inline-inner"><div class="project-inline-content">
+        <div class="project-inline-block"><div class="project-inline-label">Problem</div><p>${project.querySelector('.project-desc-alt').textContent.trim()}</p></div>
+        <div class="project-inline-block"><div class="project-inline-label">My Contribution</div><p>${detail.contribution}</p></div>
+        <div class="project-inline-block"><div class="project-inline-label">Result</div><p>${detail.result}</p></div>
+        <div class="project-inline-block"><div class="project-inline-label">Key Features</div><ul class="project-inline-features">${features.map(item=>`<li>${item}</li>`).join('')}</ul></div>
+      </div></div>`;
+      caseStudy.after(inlineDetail);
+      const cardAction=document.createElement('a');
+      cardAction.className='project-card-action';
+      cardAction.href=media.demo||projectLink.href;
+      cardAction.target='_blank';
+      cardAction.rel='noopener noreferrer';
+      cardAction.textContent=media.demo?'Live Preview ↗':'Source Code ↗';
+      inlineDetail.after(cardAction);
+      caseStudy.addEventListener('click',()=>{
+        const isOpen=caseStudy.getAttribute('aria-expanded')==='true';
+        caseStudy.setAttribute('aria-expanded',String(!isOpen));
+        inlineDetail.classList.toggle('open',!isOpen);
+      });
+      projectLink.remove();
+    });
     const projectModal=document.getElementById('project-modal');
     const modalCard=projectModal.querySelector('.project-modal-card');
     let modalTrigger=null;
     function openProjectModal(project,trigger){
       const title=project.querySelector('.project-title').textContent.trim();
-      const detail=projectDetails[title];
-      const media=projectMedia[title];
       const tech=[...project.querySelectorAll('.tech-pill')].map(item=>item.textContent.trim());
       const features=[...project.querySelectorAll('.project-results-alt li')].map(item=>item.textContent.trim());
+      const detail=projectDetails[title]||{
+        contribution:'Designed and implemented the main project workflow, interface, and technical solution.',
+        result:features.join(' '),
+        highlight:features[0]||'A practical solution built to address the project challenge.'
+      };
+      const media=projectMedia[title]||{image:'assets/projects/project-placeholder.jpg',demo:''};
       document.getElementById('modal-project-icon').textContent=project.querySelector('.project-visual').textContent.trim();
       document.getElementById('modal-project-category').textContent=project.querySelector('.project-sub').textContent.trim();
       document.getElementById('modal-project-title').textContent=title;
