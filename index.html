@@ -1268,6 +1268,26 @@
           </div>
           <div class="project-visual reveal-right">✨</div>
         </div>
+
+        <!-- Project 8 — Coffee Shop -->
+        <div class="project-item" data-category="web">
+          <div class="reveal-left">
+            <div class="project-num" data-date="JUL 2026">008</div>
+            <h3 class="project-title">Coffee Shop — Online Ordering Platform</h3>
+            <div class="project-sub">Full-Stack · E-Commerce · Food &amp; Beverage</div>
+            <p class="project-desc-alt">A full-stack coffee shop platform that helps customers browse a real-time digital menu, manage a shopping cart, and place orders while giving administrators a centralized workflow for menu and order management.</p>
+            <ul class="project-results-alt">
+              <li>Responsive menu catalog with search, category filters, and availability status</li>
+              <li>Dynamic shopping cart with quantity controls and automatic total calculation</li>
+              <li>Admin order management with role-based authentication and status updates</li>
+            </ul>
+            <div class="project-stack-alt">
+              <span class="tech-pill">PHP</span><span class="tech-pill">Laravel 9</span><span class="tech-pill">MySQL</span><span class="tech-pill">Blade</span><span class="tech-pill">Bootstrap 5</span><span class="tech-pill">JavaScript</span>
+            </div>
+            <a href="https://github.com/margaretavalen/Coffee-Shop" target="_blank" rel="noopener noreferrer" class="project-link-alt">View Project →</a>
+          </div>
+          <div class="project-visual reveal-right"></div>
+        </div>
       </div>
     </section>
 
@@ -1524,7 +1544,8 @@
       'AirScope - Air Quality Index Prediction':{contribution:'Prepared pollutant and environmental data, performed exploratory analysis, engineered the prediction workflow, and evaluated the machine learning model.',result:'Produced a reusable AQI prediction pipeline that turns environmental measurements into data-driven air-quality estimates.',highlight:'Environmental data transformed into actionable AQI predictions'},
       'SIMANDA — Intern Management System':{contribution:'Designed and developed the Flask-based administration platform, database workflow, participant management, reporting, and monitoring features.',result:'Centralized more than 100 internship participant records and improved the efficiency of administrative reporting and monitoring.',highlight:'100+ internship records managed in one system'},
       'E-Library — Digital Library Platform':{contribution:'Developed the Laravel application, database structure, authentication, catalog search, and complete CRUD workflow for library data.',result:'Created a centralized digital book administration system with a clearer catalog and more efficient borrowing management.',highlight:'Centralized catalog, borrowing, and book administration'},
-      'CLEIV — Digital Laundry Platform':{contribution:'Designed and built the responsive frontend, service-booking interactions, navigation flow, and mobile-friendly interface.',result:'Delivered a modern laundry-service experience that works consistently across desktop and mobile screen sizes.',highlight:'Responsive booking experience across every device'}
+      'CLEIV — Digital Laundry Platform':{contribution:'Designed and built the responsive frontend, service-booking interactions, navigation flow, and mobile-friendly interface.',result:'Delivered a modern laundry-service experience that works consistently across desktop and mobile screen sizes.',highlight:'Responsive booking experience across every device'},
+      'Coffee Shop — Online Ordering Platform':{contribution:'Built the Laravel application using MVC architecture, created the customer menu and cart experience, structured the MySQL data workflow, and developed the administrative order-management features.',result:'Delivered a responsive end-to-end ordering platform that reduces menu and checkout friction while centralizing product availability and order status for administrators.',highlight:'Digital menu, shopping cart, and order management in one platform'}
     };
     const projectMedia={
       'RiceUp — Rice Quality Classification':{image:'assets/projects/riceup.jpg',demo:''},
@@ -1533,7 +1554,8 @@
       'AirScope - Air Quality Index Prediction':{image:'assets/projects/aqi-prediction.jpg',demo:'https://air-quality-index-predict.vercel.app/'},
       'SIMANDA — Intern Management System':{image:'assets/projects/simanda.jpg',demo:''},
       'E-Library — Digital Library Platform':{image:'assets/projects/e-library.jpg',demo:''},
-      'CLEIV — Digital Laundry Platform':{image:'assets/projects/cleiv.jpg',demo:''}
+      'CLEIV — Digital Laundry Platform':{image:'assets/projects/cleiv.jpg',demo:''},
+      'Coffee Shop — Online Ordering Platform':{image:'assets/projects/coffee-shop.jpg',demo:''}
     };
     const projectCardTags={
       'RiceUp — Rice Quality Classification':['Computer Vision','Image Classification','REST API'],
@@ -1542,7 +1564,8 @@
       'AirScope - Air Quality Index Prediction':['Environmental Analytics','AQI Forecasting','Data Pipeline'],
       'SIMANDA — Intern Management System':['Admin Dashboard','Data Management','Reporting System'],
       'E-Library — Digital Library Platform':['Book Catalog','CRUD System','Authentication'],
-      'CLEIV — Digital Laundry Platform':['Responsive UI','Service Booking','Mobile First']
+      'CLEIV — Digital Laundry Platform':['Responsive UI','Service Booking','Mobile First'],
+      'Coffee Shop — Online Ordering Platform':['Online Ordering','Dynamic Cart','Admin Dashboard']
     };
     projectItems.forEach(project=>{
       const title=project.querySelector('.project-title').textContent.trim();
