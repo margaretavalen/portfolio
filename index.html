@@ -2669,6 +2669,26 @@
         </div>
         <div class="project-visual reveal-right"></div>
       </div>
+
+      <!-- Project 9 — Drowsiness Detection -->
+        <div class="project-item" data-category="ml">
+          <div class="reveal-left">
+            <div class="project-num" data-date="AUG 2026">009</div>
+            <h3 class="project-title">Drowsiness Detection System</h3>
+            <div class="project-sub">Computer Vision · Deep Learning · Driver Safety</div>
+            <p class="project-desc-alt">A real-time computer vision system that monitors a person's alertness, classifies awake and drowsy conditions, and triggers an audible warning to help reduce fatigue-related driving risks.</p>
+            <ul class="project-results-alt">
+              <li>Real-time camera monitoring for awake and drowsy condition detection</li>
+              <li>Deep-learning image classification trained with the Driver Drowsiness Dataset</li>
+              <li>Automatic audible alarm when signs of drowsiness are detected</li>
+            </ul>
+            <div class="project-stack-alt">
+              <span class="tech-pill">Python</span><span class="tech-pill">TensorFlow</span><span class="tech-pill">OpenCV</span><span class="tech-pill">MediaPipe</span><span class="tech-pill">Streamlit</span><span class="tech-pill">Pygame</span>
+            </div>
+            <a href="https://github.com/margaretavalen/DrowsinessDetection" target="_blank" rel="noopener noreferrer" class="project-link-alt">View Project →</a>
+          </div>
+          <div class="project-visual reveal-right"></div>
+        </div>
     </div>
   </section>
 
@@ -2953,7 +2973,8 @@
         'SIMANDA — Intern Management System': {contribution: 'Designed and developed the Flask-based administration platform, database workflow, participant management, reporting, and monitoring features.', result: 'Centralized more than 100 internship participant records and improved the efficiency of administrative reporting and monitoring.', highlight: '100+ internship records managed in one system'},
         'E-Library — Digital Library Platform': {contribution: 'Developed the Laravel application, database structure, authentication, catalog search, and complete CRUD workflow for library data.', result: 'Created a centralized digital book administration system with a clearer catalog and more efficient borrowing management.', highlight: 'Centralized catalog, borrowing, and book administration'},
         'CLEIV — Digital Laundry Platform': {contribution: 'Designed and built the responsive frontend, service-booking interactions, navigation flow, and mobile-friendly interface.', result: 'Delivered a modern laundry-service experience that works consistently across desktop and mobile screen sizes.', highlight: 'Responsive booking experience across every device'},
-        'Coffee Shop — Online Ordering Platform': {contribution: 'Built the Laravel application using MVC architecture, created the customer menu and cart experience, structured the MySQL data workflow, and developed the administrative order-management features.', result: 'Delivered a responsive end-to-end ordering platform that reduces menu and checkout friction while centralizing product availability and order status for administrators.', highlight: 'Digital menu, shopping cart, and order management in one platform'}
+        'Coffee Shop — Online Ordering Platform': {contribution: 'Built the Laravel application using MVC architecture, created the customer menu and cart experience, structured the MySQL data workflow, and developed the administrative order-management features.', result: 'Delivered a responsive end-to-end ordering platform that reduces menu and checkout friction while centralizing product availability and order status for administrators.', highlight: 'Digital menu, shopping cart, and order management in one platform'},
+        'Drowsiness Detection System':{contribution:'Prepared the driver-drowsiness dataset, developed the deep-learning classification workflow, integrated real-time camera processing, and built the Streamlit interface with an audible alert mechanism.',result:'Delivered a real-time monitoring system that distinguishes awake and drowsy conditions and automatically raises an alarm when fatigue indicators are detected.',highlight:'Real-time driver alertness monitoring with automatic warning alerts'}
       };
       const projectMedia = {
         'RiceUp — Rice Quality Classification': {image: 'assets/projects/riceup.jpg', demo: ''},
@@ -2963,7 +2984,8 @@
         'SIMANDA — Intern Management System': {image: 'assets/projects/simanda.jpg', demo: ''},
         'E-Library — Digital Library Platform': {image: 'assets/projects/e-library.jpg', demo: ''},
         'CLEIV — Digital Laundry Platform': {image: 'assets/projects/cleiv.jpg', demo: ''},
-        'Coffee Shop — Online Ordering Platform': {image: 'assets/projects/coffee-shop.jpg', demo: ''}
+        'Coffee Shop — Online Ordering Platform': {image: 'assets/projects/coffee-shop.jpg', demo: ''},
+        'Drowsiness Detection System':{image:'assets/projects/drowsiness.jpg',demo:''}
       };
       const projectCardTags = {
         'RiceUp — Rice Quality Classification': ['Computer Vision', 'Image Classification', 'REST API'],
@@ -2973,7 +2995,8 @@
         'SIMANDA — Intern Management System': ['Admin Dashboard', 'Data Management', 'Reporting System'],
         'E-Library — Digital Library Platform': ['Book Catalog', 'CRUD System', 'Authentication'],
         'CLEIV — Digital Laundry Platform': ['Responsive UI', 'Service Booking', 'Mobile First'],
-        'Coffee Shop — Online Ordering Platform': ['Online Ordering', 'Dynamic Cart', 'Admin Dashboard']
+        'Coffee Shop — Online Ordering Platform': ['Online Ordering', 'Dynamic Cart', 'Admin Dashboard'],
+        'Drowsiness Detection System':['Real-Time Detection','Driver Safety','Automatic Alarm']
       };
       projectItems.forEach(project => {
         const title = project.querySelector('.project-title').textContent.trim();
