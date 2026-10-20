@@ -361,7 +361,7 @@ export const portfolioData = {
       title: "React & Web UI",
       category: "Frontend",
       icon: "⚛️",
-      tags: ["HTML5", "CSS3", "Bootstrap", "React", "Tailwind", "JavaScript"]
+      tags: ["HTML5", "CSS3", "Bootstrap", "React", "Tailwind", "JavaScript", "CodeIgniter4"]
     },
     {
       title: "Backend Development",
@@ -373,7 +373,7 @@ export const portfolioData = {
       title: "Data Storage",
       category: "Database",
       icon: "🗄️",
-      tags: ["MySQL", "SQL"]
+      tags: ["MySQL", "SQL", "SQL Server"]
     },
     {
       title: "Dev Ecosystem",
